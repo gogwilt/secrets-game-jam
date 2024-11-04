@@ -109,3 +109,12 @@ actually happening.
 Obvious problems include:
 * Boost from zero velocity, we need to choose a direction.
 * Switching dimensions without using the boost.
+
+I added a player current direction, so that boost from zero would head in that
+direction.
+
+I also made the boost direction controllable (and cancellable), to hopefully make
+the boost feel more satisfying to use.
+
+I don't think I can add my "tap" vs "tap-and-hold" idea, because I think it will
+make the controls feel sluggish during normal gameplay.

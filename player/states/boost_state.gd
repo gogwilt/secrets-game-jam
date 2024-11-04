@@ -6,8 +6,11 @@ extends State
 
 func enter(prev_state: String, data:= {}) -> void:
 	$Timer.start()
-	player.velocity.x = Player.BOOST_SPEED * player.current_direction
-	player.velocity.y = 0
+	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if direction.length_squared() > 0:
+		player.velocity = Player.BOOST_SPEED * direction.normalized()
+	else:
+		player.velocity = Vector2(Player.BOOST_SPEED * player.current_direction, 0)
 	
 func exit() -> void:
 	$Timer.stop()
@@ -23,6 +26,10 @@ func handle_input(event: InputEvent) -> void:
 		player.velocity.y = Player.JUMP_VELOCITY
 		finished.emit(falling_state.name)
 		return
+		
+	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	if direction.length_squared() > 0 and direction.angle_to(player.velocity) > PI / 2:
+		finished.emit(falling_state.name)
 
 func _on_timer_timeout() -> void:
 	if player.is_on_floor():

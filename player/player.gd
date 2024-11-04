@@ -45,7 +45,6 @@ func _on_active_layer_updated() -> void:
 		%AlternateLevelDetector.set_collision_mask_value(2, false)
 		%AlternateLevelDetector.set_collision_mask_value(1, true)
 
-
 func _physics_process(delta: float) -> void:
 	if ((Input.is_action_pressed("swap_layers") and active_layer == Dimension.MAIN)
 		or
