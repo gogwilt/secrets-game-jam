@@ -3,8 +3,11 @@ extends State
 @export var player: Player
 @export var ground_state: State
 
+const DOUBLE_JUMPS = 1
+var double_jumps_remaining: int
+
 func enter(prev_state: String, data:= {}) -> void:
-	pass
+	double_jumps_remaining = DOUBLE_JUMPS
 	
 func exit() -> void:
 	pass
@@ -47,4 +50,6 @@ func physics_update(delta: float) -> void:
 	player.move_and_slide()
 	
 func update(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("jump") and double_jumps_remaining > 0:
+		double_jumps_remaining -= 1
+		player.velocity.y = Player.JUMP_VELOCITY
