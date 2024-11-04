@@ -74,8 +74,12 @@ func _on_boost_charge_timer_timeout() -> void:
 	
 func use_boost() -> void:
 	dimension_boost_charged = false
+	%BoostEffect.emitting = true
 	_on_boost_charge_update()
 	boost_used.emit()
+	
+func end_boost() -> void:
+	%BoostEffect.emitting = false
 	
 func _on_boost_charge_update() -> void:
 	%BoostIndicator.emitting = dimension_boost_charged

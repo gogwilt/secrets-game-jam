@@ -14,6 +14,7 @@ func enter(prev_state: String, data:= {}) -> void:
 	
 func exit() -> void:
 	$Timer.stop()
+	player.end_boost()
 	
 func physics_update(delta: float) -> void:
 	player.move_and_slide()

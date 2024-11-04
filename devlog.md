@@ -118,3 +118,7 @@ the boost feel more satisfying to use.
 
 I don't think I can add my "tap" vs "tap-and-hold" idea, because I think it will
 make the controls feel sluggish during normal gameplay.
+
+# Milestone 1 Entry: Level Signalling (11/4)
+
+Made the outline of the secret dimension visible in the main dimension.
