@@ -28,23 +28,18 @@ func physics_update(delta: float) -> void:
 	)
 	if direction and (abs(player.velocity.x) < Player.AIR_INITIAL_SPEED):
 		# Starting to move from near motionless
-		print("air move from motionless")
 		player.velocity.x = direction * Player.AIR_INITIAL_SPEED
 	elif direction and not is_switching_direction:
 		# Accelerating in same direction
-		print("air continue in direction")
-		print(abs(player.velocity.x))
 		if abs(player.velocity.x) > Player.AIR_TOP_SPEED:
-			print("air over top speed")
 			# Keep velocity the same if player is higher than top speed
+			pass
 		else:
 			player.velocity.x = move_toward(player.velocity.x, unit_direction * Player.AIR_TOP_SPEED, Player.AIR_MOVE_ACCELERATION * delta)
 	elif direction and is_switching_direction:
-		print("air shift directions")
 		# Player wants to shift in other direction
 		player.velocity.x = move_toward(player.velocity.x, unit_direction * Player.AIR_TOP_SPEED, Player.AIR_DECELERATION * delta)
 	else:
-		print("air no input")
 		# No input, so quickly decelerate
 		player.velocity.x = move_toward(player.velocity.x, 0, Player.AIR_DECELERATION * delta)
 
@@ -53,7 +48,3 @@ func physics_update(delta: float) -> void:
 	
 func update(delta: float) -> void:
 	pass
-
-func handle_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("swap_layers"):
-		player.layers_switched.emit()

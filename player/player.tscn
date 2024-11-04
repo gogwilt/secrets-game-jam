@@ -10,6 +10,7 @@
 size = Vector2(16, 16)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 0
 script = ExtResource("1_5otab")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -29,3 +30,10 @@ falling_state = NodePath("../FallingState")
 [node name="FallingState" parent="StateMachine" node_paths=PackedStringArray("player", "ground_state") instance=ExtResource("5_8beaw")]
 player = NodePath("../..")
 ground_state = NodePath("../GroundState")
+
+[node name="AlternateLevelDetector" type="Area2D" parent="."]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AlternateLevelDetector"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_6ngxk")

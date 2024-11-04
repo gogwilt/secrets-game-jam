@@ -47,6 +47,3 @@ func handle_input(event: InputEvent) -> void:
 		player.velocity.y = Player.JUMP_VELOCITY
 		finished.emit(falling_state.name)
 		return
-
-	if Input.is_action_just_pressed("swap_layers"):
-		player.layers_switched.emit()

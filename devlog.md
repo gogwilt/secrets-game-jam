@@ -96,3 +96,7 @@ Added player movement mechanics, trying to encourage speed running. Particularly
 I'll probably hold off on jump buffering and coyote time.
 
 After dash is implemented, I'll probably want to add deceleration to top speed.
+
+# Milestone 1 Entry: Collision Detection (11/4)
+
+Added detector to see if switching dimensions is valid.
