@@ -82,3 +82,17 @@ cards below it).
 *Milestone 5: Speed Running.*
 
 *Milestone 6: Sound Design.*
+
+
+## Milestone 1 Entry: Basic Movement (11/4)
+
+Added player movement mechanics, trying to encourage speed running. Particularly:
+* Acceleration - As you move, speed increases.
+* Sticky Floor - If you move the other direction, floor stops you, regardless.
+* Jump Height - Hold down jump to jump higher. Tap to do a short hop.
+* Ground vs Air Speed - Make air feel more floaty by reducing air acceleration.
+* Top Speed - Allow top speed to be ignored.
+
+I'll probably hold off on jump buffering and coyote time.
+
+After dash is implemented, I'll probably want to add deceleration to top speed.

@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://b8m6yl4vxq41k"]
+
+[ext_resource type="Script" path="res://player/player.gd" id="1_5otab"]
+[ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="1_7evac"]
+[ext_resource type="PackedScene" uid="uid://be0dsd6ctwcst" path="res://player/states/state_machine.tscn" id="3_v4sdo"]
+[ext_resource type="PackedScene" uid="uid://ckgwenlkp8pj2" path="res://player/states/ground_state.tscn" id="4_nmp6a"]
+[ext_resource type="PackedScene" uid="uid://b6san3hcuu7t8" path="res://player/states/falling_state.tscn" id="5_8beaw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ngxk"]
+size = Vector2(16, 16)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_5otab")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_6ngxk")
+
+[node name="White-16x16" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_7evac")
+
+[node name="StateMachine" parent="." instance=ExtResource("3_v4sdo")]
+
+[node name="GroundState" parent="StateMachine" node_paths=PackedStringArray("player", "falling_state") instance=ExtResource("4_nmp6a")]
+player = NodePath("../..")
+falling_state = NodePath("../FallingState")
+
+[node name="FallingState" parent="StateMachine" node_paths=PackedStringArray("player", "ground_state") instance=ExtResource("5_8beaw")]
+player = NodePath("../..")
+ground_state = NodePath("../GroundState")

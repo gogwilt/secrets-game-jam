@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://concepts/parallax-level.gd" id="1_ikjyb"]
 [ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="2_51hti"]
-[ext_resource type="PackedScene" uid="uid://b8m6yl4vxq41k" path="res://player.tscn" id="3_m3dao"]
+[ext_resource type="PackedScene" uid="uid://b8m6yl4vxq41k" path="res://player/player.tscn" id="3_m3dao"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_brp1i"]
 texture = ExtResource("2_51hti")
