@@ -6,9 +6,7 @@ extends State
 
 func enter(prev_state: String, data:= {}) -> void:
 	$Timer.start()
-	var direction := Input.get_axis("move_left", "move_right")
-	var unit_direction := 0 if direction == 0 else 1 if direction > 0 else -1
-	player.velocity.x = Player.BOOST_SPEED * unit_direction
+	player.velocity.x = Player.BOOST_SPEED * player.current_direction
 	player.velocity.y = 0
 	
 func exit() -> void:

@@ -9,6 +9,8 @@ var active_layer: Dimension = Dimension.MAIN
 
 var dimension_boost_charged: bool = false
 
+var current_direction: int = 1
+
 const GRAVITY = 1000.0
 
 const JUMP_VELOCITY = -300.0
@@ -54,6 +56,11 @@ func _physics_process(delta: float) -> void:
 			active_layer = Dimension.SUB if active_layer == Dimension.MAIN else Dimension.MAIN
 			_on_active_layer_updated()
 			layers_switched.emit(active_layer)
+
+	var direction := Input.get_axis("move_left", "move_right")
+	var unit_direction := 0 if direction == 0 else 1 if direction > 0 else -1
+	if unit_direction:
+		current_direction = unit_direction
 
 func _track_layer_switch_for_boost(layer: Dimension) -> void:
 	if layer == Dimension.SUB:
