@@ -2,6 +2,7 @@ extends State
 
 @export var player: Player
 @export var falling_state: State
+@export var boost_state: State
 
 func enter(prev_state: String, data:= {}) -> void:
 	pass
@@ -46,4 +47,11 @@ func handle_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("jump"):
 		player.velocity.y = Player.JUMP_VELOCITY
 		finished.emit(falling_state.name)
+		return
+		
+	if Input.is_action_just_pressed("swap_layers") and player.dimension_boost_charged:
+		# Levitate slightly off ground
+		player.position.y -= 10
+		player.use_boost()
+		finished.emit(boost_state.name)
 		return

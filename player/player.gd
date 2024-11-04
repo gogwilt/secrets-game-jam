@@ -1,28 +1,35 @@
 class_name Player extends CharacterBody2D
 
 signal layers_switched(active_layer: Dimension)
+signal boost_charged
+signal boost_used
 
 enum Dimension { MAIN, SUB }
 var active_layer: Dimension = Dimension.MAIN
+
+var dimension_boost_charged: bool = false
 
 const GRAVITY = 1000.0
 
 const JUMP_VELOCITY = -300.0
 
-const GROUND_INITIAL_SPEED = 200.0
-const GROUND_MOVE_ACCELERATION = 1000.0
-const GROUND_DECELERATION = 5000.0
+const GROUND_INITIAL_SPEED = 100.0
+const GROUND_MOVE_ACCELERATION = 500.0
+const GROUND_DECELERATION = 2500.0
 
-const AIR_INITIAL_SPEED = 100.0
-const AIR_MOVE_ACCELERATION = 200.0
-const AIR_DECELERATION = 500.0
+const AIR_INITIAL_SPEED = 50.0
+const AIR_MOVE_ACCELERATION = 100.0
+const AIR_DECELERATION = 250.0
 
 # Top speeds CAN be broken, if you start with this velocity.
-const GROUND_TOP_SPEED = 1000.0
-const AIR_TOP_SPEED = 500.0
+const GROUND_TOP_SPEED = 500.0
+const AIR_TOP_SPEED = 250.0
+
+const BOOST_SPEED = 750.0
 
 func _ready() -> void:
 	_on_active_layer_updated()
+	layers_switched.connect(_track_layer_switch_for_boost)
 
 func _on_active_layer_updated() -> void:
 	if active_layer == Dimension.MAIN:
@@ -47,3 +54,22 @@ func _physics_process(delta: float) -> void:
 			active_layer = Dimension.SUB if active_layer == Dimension.MAIN else Dimension.MAIN
 			_on_active_layer_updated()
 			layers_switched.emit(active_layer)
+
+func _track_layer_switch_for_boost(layer: Dimension) -> void:
+	if layer == Dimension.SUB:
+		%BoostChargeTimer.start()
+	else:
+		%BoostChargeTimer.stop()
+
+func _on_boost_charge_timer_timeout() -> void:
+	dimension_boost_charged = true
+	_on_boost_charge_update()
+	boost_charged.emit()
+	
+func use_boost() -> void:
+	dimension_boost_charged = false
+	_on_boost_charge_update()
+	boost_used.emit()
+	
+func _on_boost_charge_update() -> void:
+	%BoostIndicator.emitting = dimension_boost_charged

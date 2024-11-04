@@ -2,6 +2,7 @@ extends State
 
 @export var player: Player
 @export var ground_state: State
+@export var boost_state: State
 
 const DOUBLE_JUMPS = 1
 var double_jumps_remaining: int
@@ -53,3 +54,8 @@ func update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and double_jumps_remaining > 0:
 		double_jumps_remaining -= 1
 		player.velocity.y = Player.JUMP_VELOCITY
+
+	if Input.is_action_just_pressed("swap_layers") and player.dimension_boost_charged:
+		player.use_boost()
+		finished.emit(boost_state.name)
+		return

@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8m6yl4vxq41k"]
+[gd_scene load_steps=8 format=3 uid="uid://b8m6yl4vxq41k"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_5otab"]
 [ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="1_7evac"]
 [ext_resource type="PackedScene" uid="uid://be0dsd6ctwcst" path="res://player/states/state_machine.tscn" id="3_v4sdo"]
 [ext_resource type="PackedScene" uid="uid://ckgwenlkp8pj2" path="res://player/states/ground_state.tscn" id="4_nmp6a"]
 [ext_resource type="PackedScene" uid="uid://b6san3hcuu7t8" path="res://player/states/falling_state.tscn" id="5_8beaw"]
+[ext_resource type="PackedScene" uid="uid://cddfljqinlj3g" path="res://player/states/boost_state.tscn" id="6_edjx4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ngxk"]
 size = Vector2(16, 16)
@@ -17,18 +18,37 @@ script = ExtResource("1_5otab")
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_6ngxk")
 
+[node name="BoostIndicator" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+emitting = false
+lifetime = 0.2
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 4.0
+scale_amount_max = 4.0
+
 [node name="White-16x16" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
 texture = ExtResource("1_7evac")
 
 [node name="StateMachine" parent="." instance=ExtResource("3_v4sdo")]
 
-[node name="GroundState" parent="StateMachine" node_paths=PackedStringArray("player", "falling_state") instance=ExtResource("4_nmp6a")]
+[node name="GroundState" parent="StateMachine" node_paths=PackedStringArray("player", "falling_state", "boost_state") instance=ExtResource("4_nmp6a")]
 player = NodePath("../..")
 falling_state = NodePath("../FallingState")
+boost_state = NodePath("../BoostState")
 
-[node name="FallingState" parent="StateMachine" node_paths=PackedStringArray("player", "ground_state") instance=ExtResource("5_8beaw")]
+[node name="FallingState" parent="StateMachine" node_paths=PackedStringArray("player", "ground_state", "boost_state") instance=ExtResource("5_8beaw")]
 player = NodePath("../..")
+ground_state = NodePath("../GroundState")
+boost_state = NodePath("../BoostState")
+
+[node name="BoostState" parent="StateMachine" node_paths=PackedStringArray("player", "falling_state", "ground_state") instance=ExtResource("6_edjx4")]
+player = NodePath("../..")
+falling_state = NodePath("../FallingState")
 ground_state = NodePath("../GroundState")
 
 [node name="AlternateLevelDetector" type="Area2D" parent="."]
@@ -37,3 +57,10 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlternateLevelDetector"]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_6ngxk")
+
+[node name="BoostChargeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 2.5
+one_shot = true
+
+[connection signal="timeout" from="BoostChargeTimer" to="." method="_on_boost_charge_timer_timeout"]

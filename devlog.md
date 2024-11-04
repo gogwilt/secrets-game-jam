@@ -100,3 +100,12 @@ After dash is implemented, I'll probably want to add deceleration to top speed.
 # Milestone 1 Entry: Collision Detection (11/4)
 
 Added detector to see if switching dimensions is valid.
+
+# Milestone 1 Entry: Dimension Boost (11/4)
+
+Added boost. Timer for charging up the boost, and a new state for the boost
+actually happening.
+
+Obvious problems include:
+* Boost from zero velocity, we need to choose a direction.
+* Switching dimensions without using the boost.
