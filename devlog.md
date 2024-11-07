@@ -122,3 +122,23 @@ make the controls feel sluggish during normal gameplay.
 # Milestone 1 Entry: Level Signalling (11/4)
 
 Made the outline of the secret dimension visible in the main dimension.
+
+# Milestone 2 Entry: Multiple levels and "Level 2" (11/6)
+
+I added a level selector and a ways to switch between levels.
+
+I also started building the first "real level." Adding some of the corridor
+mechanics makes things start to feel almost fun.
+
+I also added a pulse to the secret level, to hopefully make it more obvious that
+it isn't part of the main level.
+
+Some thoughts on this:
+* "Boost ready" animation is too subtle. I'm actually imagining something
+rotating around the player (like cards orbiting a path) to make it more visually
+appealing and obvious.
+* Easy way to reset the level would be good. I don't think we need to add a way
+to "die," so that new players feel comfortably like they can progress through
+the game. BUT when someone is trying to optimize a speedrun, we should give them
+a quick "pause => reset level" option so they don't waste time getting out of
+the hole they fell in.

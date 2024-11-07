@@ -11,9 +11,9 @@ var dimension_boost_charged: bool = false
 
 var current_direction: int = 1
 
-const GRAVITY = 1000.0
+const GRAVITY = 1200.0
 
-const JUMP_VELOCITY = -300.0
+const JUMP_VELOCITY = -400.0
 
 const GROUND_INITIAL_SPEED = 100.0
 const GROUND_MOVE_ACCELERATION = 500.0

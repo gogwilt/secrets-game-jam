@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://wkduvd34do2n"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ajyqa"]
+[ext_resource type="PackedScene" uid="uid://bmg1a87djoblf" path="res://level_select_menu.tscn" id="2_8jul3"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ajyqa")
+
+[node name="LevelSelectMenu" parent="." instance=ExtResource("2_8jul3")]
+
+[connection signal="level_selected" from="LevelSelectMenu" to="." method="_on_level_select_menu_level_selected"]

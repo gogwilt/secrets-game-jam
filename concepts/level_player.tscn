@@ -1,0 +1,98 @@
+[gd_scene load_steps=10 format=3 uid="uid://c1np6ywht4f5v"]
+
+[ext_resource type="Script" path="res://concepts/level_player.gd" id="1_g5obh"]
+[ext_resource type="PackedScene" uid="uid://be058k2eqlwu2" path="res://concepts/levels/level_2.tscn" id="2_ug071"]
+[ext_resource type="PackedScene" uid="uid://b8m6yl4vxq41k" path="res://player/player.tscn" id="3_tcu1j"]
+
+[sub_resource type="Animation" id="Animation_hsskv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/PortalLight:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+
+[sub_resource type="Animation" id="Animation_vq7mj"]
+resource_name = "collapse_portal"
+length = 0.233337
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/PortalLight:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.233333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.01]
+}
+
+[sub_resource type="Animation" id="Animation_33tmx"]
+resource_name = "expand_portal"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player/PortalLight:texture_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.5, 3),
+"transitions": PackedFloat32Array(0.378929, 2.82843, 0.378929, 1),
+"update": 0,
+"values": [0.01, 0.4, 0.01, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aik2d"]
+_data = {
+"RESET": SubResource("Animation_hsskv"),
+"collapse_portal": SubResource("Animation_vq7mj"),
+"expand_portal": SubResource("Animation_33tmx")
+}
+
+[sub_resource type="Gradient" id="Gradient_mimya"]
+offsets = PackedFloat32Array(0, 0.944805, 0.957792)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_11htq"]
+gradient = SubResource("Gradient_mimya")
+width = 1000
+height = 1000
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="LevelPlayer" type="Node2D"]
+script = ExtResource("1_g5obh")
+
+[node name="LevelContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="Level2" parent="LevelContainer" instance=ExtResource("2_ug071")]
+
+[node name="PortalAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_aik2d")
+}
+
+[node name="Player" parent="." instance=ExtResource("3_tcu1j")]
+position = Vector2(-26, -3)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="PortalLight" type="PointLight2D" parent="Player"]
+unique_name_in_owner = true
+blend_mode = 1
+range_item_cull_mask = 6
+texture = SubResource("GradientTexture2D_11htq")
+texture_scale = 0.01
+
+[connection signal="layers_switched" from="Player" to="." method="_on_player_layers_switched"]
