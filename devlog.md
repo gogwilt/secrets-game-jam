@@ -143,7 +143,39 @@ the game. BUT when someone is trying to optimize a speedrun, we should give them
 a quick "pause => reset level" option so they don't waste time getting out of
 the hole they fell in.
 
-# Milestone 2 Entry: Level completion, pausing, etc
+# Milestone 2 Entry: Level completion, pausing, etc (11/7)
 
 Added logic around level completion, player starting location, pause menus, win
 screens, etc.
+
+# Playtest 1 (11/7)
+
+Playtester went through Level 1 (with tutorials as labels in the background) and
+Level 2. Overall, seemed to think it was quite fun, and it reminded him of a game
+called "Animal Well."
+
+* Speed Running - He almost immediately asked for a timer, saying "what would be
+  super cool would be a timer, so I can beat my time."
+* Movement - Jump right/left acceleration was too low. Felt sluggish when he was
+  jumping from a standing state.
+* Boost - He really liked the boost mechanic, but it took a long time for him to
+  understand how it worked. He didn't read the tutorial instructions about how
+  to charge it up, and he never discovered that he could direct it in any
+  direction. He suggested (1) using a different button for the boost and
+  (2) adding a charge bar, showing that the boost is charging. He also suggested
+  progressively adding the boost mechanic, and granting it at a different level,
+  perhaps as an item bonus.
+* Secret Parts of Levels - He suggested hiding secret parts of each level that
+  are unlocked by gaining access to new abilities. Two specific examples he gave
+  were: (1) adding an upwards boost, and having a path in a level that is only
+  accessible once you can do the upward boost; and (2) adding a third dimension.
+
+Based on this playtest, I want to rework movement and boost a little.
+Specifically, I want to separate the buttons for boost and dimension-switching.
+One idea for keeping the controls simple would be to add boost to the jump (and
+remove the double-jump). If you jump when already in the air, you instead boost
+in a direction. This is a mini-boost if you don't already have it charged, and
+a big boost if you already have it charged.
+
+I also want to tweak jump right/left movement, so that it doesn't feel as
+sluggish if you jump from standing.
