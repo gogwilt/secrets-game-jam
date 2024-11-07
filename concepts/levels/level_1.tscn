@@ -93,3 +93,27 @@ position = Vector2(-99, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEndArea"]
 position = Vector2(3584.75, 572.5)
 shape = SubResource("RectangleShape2D_5f4dx")
+
+[node name="MovementJumpInstructions" type="Label" parent="."]
+offset_left = -283.0
+offset_top = -66.0
+offset_right = -38.0
+offset_bottom = -17.0
+text = "WASD / Left Stick - Move
+K / Controller X - Jump/Double-Jump"
+
+[node name="DimensionInstructions" type="Label" parent="."]
+offset_left = 409.0
+offset_top = -412.0
+offset_right = 682.0
+offset_bottom = -363.0
+text = "J / Controller Square - Switch Dimensions
+Hold to stay in alternate dimension"
+
+[node name="BoostInstructions" type="Label" parent="."]
+offset_left = 854.0
+offset_top = 312.0
+offset_right = 1236.0
+offset_bottom = 361.0
+text = "Stay in alternate dimension to charge your boost.
+J / Controller Square - Boost in specified direction"
