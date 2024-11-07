@@ -71,6 +71,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 0.5)
 
 [node name="LevelPlayer" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_g5obh")
 
 [node name="LevelContainer" type="Node2D" parent="."]
@@ -83,7 +84,7 @@ libraries = {
 "": SubResource("AnimationLibrary_aik2d")
 }
 
-[node name="Player" parent="." instance=ExtResource("3_tcu1j")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("3_tcu1j")]
 position = Vector2(-26, -3)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]

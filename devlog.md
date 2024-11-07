@@ -142,3 +142,8 @@ to "die," so that new players feel comfortably like they can progress through
 the game. BUT when someone is trying to optimize a speedrun, we should give them
 a quick "pause => reset level" option so they don't waste time getting out of
 the hole they fell in.
+
+# Milestone 2 Entry: Level completion, pausing, etc
+
+Added logic around level completion, player starting location, pause menus, win
+screens, etc.

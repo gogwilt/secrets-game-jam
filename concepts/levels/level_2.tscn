@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=4 uid="uid://be058k2eqlwu2"]
+[gd_scene load_steps=16 format=4 uid="uid://be058k2eqlwu2"]
 
 [ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="1_gtlfc"]
+[ext_resource type="Script" path="res://concepts/levels/base_level.gd" id="1_x6a5b"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_snij3"]
 blend_mode = 2
@@ -77,7 +78,13 @@ _data = {
 "pulse_sub_layer": SubResource("Animation_wucco")
 }
 
-[node name="Level2" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6064w"]
+size = Vector2(236, 24)
+
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("player_start_position", "level_end_area")]
+script = ExtResource("1_x6a5b")
+player_start_position = NodePath("PlayerStart")
+level_end_area = NodePath("LevelEndArea")
 
 [node name="MainLayer" type="TileMapLayer" parent="."]
 self_modulate = Color(4.33177e-07, 0.35685, 0.357131, 1)
@@ -124,3 +131,13 @@ libraries = {
 "": SubResource("AnimationLibrary_0skw1")
 }
 autoplay = "pulse_sub_layer"
+
+[node name="PlayerStart" type="Marker2D" parent="."]
+position = Vector2(86, -17)
+
+[node name="LevelEndArea" type="Area2D" parent="."]
+position = Vector2(4893, -42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEndArea"]
+position = Vector2(3643, 27)
+shape = SubResource("RectangleShape2D_6064w")

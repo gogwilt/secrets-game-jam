@@ -1,7 +1,9 @@
-extends Node2D
+extends CanvasLayer
 
 signal level_selected(level_name: String)
 
+func _ready() -> void:
+	$Level1.grab_focus()
 
 func _on_level_1_pressed() -> void:
 	level_selected.emit("level_1")

@@ -1,43 +1,64 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmg1a87djoblf"]
+[gd_scene load_steps=3 format=3 uid="uid://bmg1a87djoblf"]
 
 [ext_resource type="Script" path="res://level_select_menu.gd" id="1_v4h1n"]
+[ext_resource type="Script" path="res://grab_focus.gd" id="2_8f783"]
 
-[node name="LevelSelectMenu" type="Node2D"]
+[node name="LevelSelectMenu" type="CanvasLayer"]
 script = ExtResource("1_v4h1n")
 
-[node name="Level 1" type="Button" parent="."]
+[node name="Level1" type="Button" parent="." node_paths=PackedStringArray("menu_container")]
 offset_left = 501.0
 offset_top = 50.0
 offset_right = 658.0
 offset_bottom = 275.0
+focus_neighbor_bottom = NodePath("../Level2")
+focus_next = NodePath("../Level2")
 text = "The Duchess
 (Level 1)"
+script = ExtResource("2_8f783")
+menu_container = NodePath("..")
 
-[node name="Level 2" type="Button" parent="."]
+[node name="Level2" type="Button" parent="."]
 offset_left = 213.0
 offset_top = 332.0
 offset_right = 370.0
 offset_bottom = 557.0
+focus_neighbor_top = NodePath("../Level1")
+focus_neighbor_right = NodePath("../Level3")
+focus_neighbor_bottom = NodePath("../Level3")
+focus_next = NodePath("../Level3")
+focus_previous = NodePath("../Level1")
 text = "The Servant
 (Level 2)"
 
-[node name="Level 3" type="Button" parent="."]
+[node name="Level3" type="Button" parent="."]
 offset_left = 503.0
 offset_top = 325.0
 offset_right = 660.0
 offset_bottom = 550.0
+focus_neighbor_left = NodePath("../Level2")
+focus_neighbor_top = NodePath("../Level1")
+focus_neighbor_right = NodePath("../Level4")
+focus_neighbor_bottom = NodePath("../Level4")
+focus_next = NodePath("../Level4")
+focus_previous = NodePath("../Level2")
+disabled = true
 text = "The Maiden
 (Level 3)"
 
-[node name="Level 4" type="Button" parent="."]
+[node name="Level4" type="Button" parent="."]
 offset_left = 796.0
 offset_top = 327.0
 offset_right = 953.0
 offset_bottom = 552.0
+focus_neighbor_left = NodePath("../Level3")
+focus_neighbor_top = NodePath("../Level1")
+focus_previous = NodePath("../Level3")
+disabled = true
 text = "The Gentleman
 (Level 4)"
 
-[connection signal="pressed" from="Level 1" to="." method="_on_level_1_pressed"]
-[connection signal="pressed" from="Level 2" to="." method="_on_level_2_pressed"]
-[connection signal="pressed" from="Level 3" to="." method="_on_level_3_pressed"]
-[connection signal="pressed" from="Level 4" to="." method="_on_level_4_pressed"]
+[connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
+[connection signal="pressed" from="Level3" to="." method="_on_level_3_pressed"]
+[connection signal="pressed" from="Level4" to="." method="_on_level_4_pressed"]
