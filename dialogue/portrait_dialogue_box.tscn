@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://81fodyphn848"]
+
+[ext_resource type="Texture2D" uid="uid://qbi87ve00g1v" path="res://assets/black-16x16.png" id="1_0jjmw"]
+[ext_resource type="Script" path="res://dialogue/portrait_dialogue_box.gd" id="1_d7fg6"]
+
+[node name="PortraitDialogueBox" type="Control"]
+layout_mode = 3
+offset_right = 337.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_d7fg6")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 11.0
+offset_right = 562.0
+offset_bottom = 157.0
+color = Color(0.0430392, 0.0430392, 0.0430392, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 13.0
+offset_right = 559.0
+offset_bottom = 152.0
+
+[node name="Portrait" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_0jjmw")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 38.0
+offset_right = 544.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "This is about the maximum aamount of text one should try to fit into this dialogue box. Otherwise, player will stop reading."
+autowrap_mode = 3
+
+[node name="CharacterName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 12.0
+offset_right = 302.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Character Name"
+autowrap_mode = 3
+uppercase = true

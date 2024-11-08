@@ -179,3 +179,15 @@ a big boost if you already have it charged.
 
 I also want to tweak jump right/left movement, so that it doesn't feel as
 sluggish if you jump from standing.
+
+# Milestone 2 Entry: Tutorial Level (11/7)
+
+Redid the tutorial level, because originally it was just the test level with
+some labels. I created a way to show dialogue text when the player enters an
+area, and made some of the parts of the level less punishing.
+
+Some thoughts that came out of this:
+* Dashable chasms need to be fully visible to the player. You can't see the other
+  side right now, so it's a leap of faith. Maybe we can have the camera skew
+  towards the forward direction for a player?
+* Movement still feels janky.
