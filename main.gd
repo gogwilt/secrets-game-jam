@@ -31,14 +31,22 @@ func unpause() -> void:
 	$PauseMenu.visible = false
 
 func _on_level_select_menu_level_selected(level_name: String) -> void:
-	unpause()
 	add_child(level_player)
 	level_player.load_level(level_name)
 	current_level_name = level_name
 	level_player.connect("level_completed", _on_level_completed)
+
+	# Bug fix: await then unpause, because _on_level_completed will likely fire.
+	# Without this, if you complete the level and then play it again, it will
+	# be paused and the level complete menu will be showing.
+	await get_tree().process_frame
+	unpause()
+	$LevelCompleteMenu.visible = false
+
 	$LevelSelectMenu.visible = false
 	
 func go_to_main_menu() -> void:
+	unpause()
 	remove_child(level_player)
 	$LevelCompleteMenu.visible = false
 	$PauseMenu.visible = false

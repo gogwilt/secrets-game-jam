@@ -85,9 +85,11 @@ libraries = {
 }
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_tcu1j")]
-position = Vector2(-26, -3)
+position = Vector2(1344, -9)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(279, 0)
+position_smoothing_enabled = true
 
 [node name="PortalLight" type="PointLight2D" parent="Player"]
 unique_name_in_owner = true

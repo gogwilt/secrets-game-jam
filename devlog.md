@@ -191,3 +191,7 @@ Some thoughts that came out of this:
   side right now, so it's a leap of faith. Maybe we can have the camera skew
   towards the forward direction for a player?
 * Movement still feels janky.
+* Collectibles hidden around the level would be good, especially to motivate the
+  player to move forward in the level, and to give you a reward at the end.
+
+Edit: fixed the camera, and a few bugs.

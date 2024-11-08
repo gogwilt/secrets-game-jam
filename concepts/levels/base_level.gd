@@ -10,6 +10,7 @@ func _ready() -> void:
 	var player: Player = get_tree().get_first_node_in_group("player")
 	if player and player_start_position:
 		player.position = player_start_position.position
+		player.velocity = Vector2.ZERO
 	if level_end_area:
 		# Player is on layer 3, so it doesn't interfere with dimension switch collision detection
 		level_end_area.set_collision_mask_value(3, true)

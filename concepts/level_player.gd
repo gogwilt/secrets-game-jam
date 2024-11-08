@@ -13,6 +13,7 @@ func load_level(level_name: String) -> void:
 	var level: BaseLevel = level_scene.instantiate()
 	%LevelContainer.add_child(level)
 	level.connect("level_completed", _on_level_completed)
+	%PortalLight.texture_scale = 0
 	
 func _on_level_completed() -> void:
 	level_completed.emit()
