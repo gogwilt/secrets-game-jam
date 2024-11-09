@@ -53,7 +53,10 @@ func physics_update(delta: float) -> void:
 func update(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and double_jumps_remaining > 0:
 		double_jumps_remaining -= 1
-		player.velocity.y = Player.JUMP_VELOCITY
+		#player.velocity.y = Player.JUMP_VELOCITY
+		finished.emit(boost_state.name,{"boost_charged": player.dimension_boost_charged})
+		if player.dimension_boost_charged:
+			player.use_boost()
 
 	if Input.is_action_just_pressed("swap_layers") and player.dimension_boost_charged:
 		player.use_boost()

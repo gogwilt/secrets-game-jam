@@ -4,13 +4,21 @@ extends State
 @export var falling_state: State
 @export var ground_state: State
 
-func enter(prev_state: String, data:= {}) -> void:
-	$Timer.start()
+func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
+	var speed = Player.BOOST_SPEED_UNCHARGED
+	var time = Player.BOOST_TIME_UNCHARGED
+	print(data)
+	if data.boost_charged:
+		speed = Player.BOOST_SPEED_CHARGED
+		time = Player.BOOST_TIME_CHARGED
+	
+	$Timer.start(time)
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
 	if direction.length_squared() > 0:
-		player.velocity = Player.BOOST_SPEED * direction.normalized()
+		player.velocity = speed * direction.normalized()
 	else:
-		player.velocity = Vector2(Player.BOOST_SPEED * player.current_direction, 0)
+		player.velocity = Vector2(0, -speed)
 	
 func exit() -> void:
 	$Timer.stop()
