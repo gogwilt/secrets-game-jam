@@ -7,7 +7,6 @@ extends State
 func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
 	var speed = Player.BOOST_SPEED_UNCHARGED
 	var time = Player.BOOST_TIME_UNCHARGED
-	print(data)
 	if data.boost_charged:
 		speed = Player.BOOST_SPEED_CHARGED
 		time = Player.BOOST_TIME_CHARGED
@@ -18,7 +17,7 @@ func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
 	if direction.length_squared() > 0:
 		player.velocity = speed * direction.normalized()
 	else:
-		player.velocity = Vector2(0, -speed)
+		player.velocity = Vector2(speed * player.current_direction, 0)
 	
 func exit() -> void:
 	$Timer.stop()
