@@ -48,10 +48,10 @@ func handle_input(event: InputEvent) -> void:
 		player.velocity.y = Player.JUMP_VELOCITY
 		finished.emit(falling_state.name)
 		return
-		
-	if Input.is_action_just_pressed("swap_layers") and player.dimension_boost_charged:
-		# Levitate slightly off ground
+	
+	if Input.is_action_just_pressed("boost"):
 		player.position.y -= 10
-		player.use_boost()
-		finished.emit(boost_state.name)
-		return
+			
+		finished.emit(boost_state.name,{"boost_charged": player.dimension_boost_charged})
+		if player.dimension_boost_charged:
+			player.use_boost()

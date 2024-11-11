@@ -27,7 +27,10 @@ const AIR_DECELERATION = 250.0
 const GROUND_TOP_SPEED = 500.0
 const AIR_TOP_SPEED = 250.0
 
-const BOOST_SPEED = 750.0
+const BOOST_SPEED_CHARGED = 750.0
+const BOOST_SPEED_UNCHARGED = 400.0
+const BOOST_TIME_CHARGED = 1.0
+const BOOST_TIME_UNCHARGED = 0.2
 
 func _ready() -> void:
 	_on_active_layer_updated()
