@@ -28,7 +28,7 @@ const GROUND_TOP_SPEED = 500.0
 const AIR_TOP_SPEED = 250.0
 
 const BOOST_SPEED_CHARGED = 750.0
-const BOOST_SPEED_UNCHARGED = 400.0
+const BOOST_SPEED_UNCHARGED = 500.0
 const BOOST_TIME_CHARGED = 1.0
 const BOOST_TIME_UNCHARGED = 0.2
 
@@ -90,12 +90,34 @@ func _on_boost_charge_update() -> void:
 	
 func animate_idle() -> void:
 	$AnimatedSprite2D.play("default")
+	$AnimatedSprite2D.rotation = 0
 
 func animate_jump_up() -> void:
 	$AnimatedSprite2D.play("jump_up")
+	$AnimatedSprite2D.rotation = 0
 	
 func animate_jump_down() -> void:
 	$AnimatedSprite2D.play("jump_down")
+	$AnimatedSprite2D.rotation = 0
 	
 func animate_run() -> void:
 	$AnimatedSprite2D.play("run")
+	$AnimatedSprite2D.rotation = 0
+	
+func animate_boost() -> void:
+	$AnimatedSprite2D.play("boost")
+	$AnimatedSprite2D.rotation = 0
+	
+func animate_boost_up() -> void:
+	$AnimatedSprite2D.play("boost")
+	if current_direction > 0:
+		$AnimatedSprite2D.rotation = PI / 2 * 3
+	else:
+		$AnimatedSprite2D.rotation = PI / 2
+	
+func animate_boost_down() -> void:
+	$AnimatedSprite2D.play("boost")
+	if current_direction > 0:
+		$AnimatedSprite2D.rotation = PI / 2
+	else:
+		$AnimatedSprite2D.rotation = PI / 2 * 3

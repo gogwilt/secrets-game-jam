@@ -18,9 +18,13 @@ func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
 		player.velocity = speed * direction.normalized()
 	else:
 		player.velocity = Vector2(speed * player.current_direction, 0)
-		
-	# TODO Special boost animation
-	player.animate_jump_up()
+
+	if abs(player.velocity.angle_to(Vector2.UP)) < PI / 8:
+		player.animate_boost_up()
+	elif abs(player.velocity.angle_to(Vector2.DOWN)) < PI / 8:
+		player.animate_boost_down()
+	else:
+		player.animate_boost()
 	
 func exit() -> void:
 	$Timer.stop()
