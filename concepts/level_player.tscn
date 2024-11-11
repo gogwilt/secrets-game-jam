@@ -85,7 +85,8 @@ libraries = {
 }
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("3_tcu1j")]
-position = Vector2(1344, -9)
+position = Vector2(1344, -8)
+metadata/_edit_group_ = true
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(279, 0)

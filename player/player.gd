@@ -61,8 +61,9 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("move_left", "move_right")
 	var unit_direction := 0 if direction == 0 else 1 if direction > 0 else -1
-	if unit_direction:
+	if unit_direction and current_direction != unit_direction:
 		current_direction = unit_direction
+		$AnimatedSprite2D.scale *= Vector2(-1, 1)
 
 func _track_layer_switch_for_boost(layer: Dimension) -> void:
 	if layer == Dimension.SUB:
@@ -86,3 +87,15 @@ func end_boost() -> void:
 	
 func _on_boost_charge_update() -> void:
 	%BoostIndicator.emitting = dimension_boost_charged
+	
+func animate_idle() -> void:
+	$AnimatedSprite2D.play("default")
+
+func animate_jump_up() -> void:
+	$AnimatedSprite2D.play("jump_up")
+	
+func animate_jump_down() -> void:
+	$AnimatedSprite2D.play("jump_down")
+	
+func animate_run() -> void:
+	$AnimatedSprite2D.play("run")

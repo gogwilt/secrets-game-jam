@@ -37,6 +37,11 @@ func physics_update(delta: float) -> void:
 	else:
 		# No input, so quickly decelerate
 		player.velocity.x = move_toward(player.velocity.x, 0, Player.GROUND_DECELERATION * delta)
+		
+	if abs(player.velocity.x) > 10:
+		player.animate_run()
+	else:
+		player.animate_idle()
 
 	player.move_and_slide()
 	

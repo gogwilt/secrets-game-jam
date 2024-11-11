@@ -18,6 +18,9 @@ func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
 		player.velocity = speed * direction.normalized()
 	else:
 		player.velocity = Vector2(speed * player.current_direction, 0)
+		
+	# TODO Special boost animation
+	player.animate_jump_up()
 	
 func exit() -> void:
 	$Timer.stop()
