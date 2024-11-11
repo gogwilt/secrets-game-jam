@@ -195,3 +195,16 @@ Some thoughts that came out of this:
   player to move forward in the level, and to give you a reward at the end.
 
 Edit: fixed the camera, and a few bugs.
+
+# Planning: What Next?
+
+* Movement - let's rethink dash/boost.
+* Concept Art - let's sketch what things might look like, especially the player.
+* More Playtest - can we get advice on improving movement?
+* Art
+* Dialogue/Story
+* Additional Levels
+* Collectible Items
+* Sound Design
+* Time trials
+* Leaderboard

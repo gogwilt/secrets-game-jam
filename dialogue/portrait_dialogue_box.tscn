@@ -5,6 +5,7 @@
 
 [node name="PortraitDialogueBox" type="Control"]
 layout_mode = 3
+anchors_preset = 0
 offset_right = 337.0
 offset_bottom = 184.0
 grow_horizontal = 2
