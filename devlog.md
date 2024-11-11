@@ -208,3 +208,29 @@ Edit: fixed the camera, and a few bugs.
 * Sound Design
 * Time trials
 * Leaderboard
+
+# Milestone 3 Entry: Player Art (11/10)
+
+We're using PixelLab, an Aseprite plugin, to generate our sprites, and it's
+working fairly well. We generated a cool-looking character, and then rotated him
+and animated him running and jumping. The default skeletons are OK, but it's
+very easy to pose the skeletons, and then generate from there.
+
+We also updated the boost mechanic, so that it's on a separate button from
+dimension-switching. The player can now boost whenever they want, but they'll
+get a big boost when their dimension boost is charged.
+
+Our hope is that the art makes the player movement feel better. To that end, I
+added in a few critical animations just now, including:
+* Run
+* Jump
+* Idle
+
+I think a few things that will make this feel a ton better are:
+* Boost Animation - seeing the player strike a pose as they boost will look great.
+* Fall Animation - The player has a long coat, so I think seeing it billow
+behind them will be cool.
+* Boost Particle Effect - make the boost look like a dash, spawning player shadow
+particles behind the player.
+* Charged Boost Effect - have particles rotating around the player to indicate
+the charge.
