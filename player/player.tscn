@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://b8m6yl4vxq41k"]
+[gd_scene load_steps=28 format=3 uid="uid://b8m6yl4vxq41k"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_5otab"]
 [ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="1_7evac"]
+[ext_resource type="Texture2D" uid="uid://bnwfkjx6fcjcg" path="res://assets/boost-sprite.png" id="2_ecfe0"]
 [ext_resource type="Texture2D" uid="uid://2jc1ykavq7ro" path="res://assets/generated-sprite.png" id="3_7lr0j"]
 [ext_resource type="PackedScene" uid="uid://be0dsd6ctwcst" path="res://player/states/state_machine.tscn" id="3_v4sdo"]
 [ext_resource type="PackedScene" uid="uid://ckgwenlkp8pj2" path="res://player/states/ground_state.tscn" id="4_nmp6a"]
@@ -10,6 +11,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ngxk"]
 size = Vector2(18, 36.875)
+
+[sub_resource type="Gradient" id="Gradient_qwdu0"]
+offsets = PackedFloat32Array(0.0233333, 0.48, 1)
+colors = PackedColorArray(0.729612, 2.93598e-06, 7.70092e-07, 1, 0.510991, 0.523285, 0.170738, 1, 0.362047, 0.261659, 0.999959, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_217ht"]
 atlas = ExtResource("3_7lr0j")
@@ -173,16 +178,19 @@ scale_amount_max = 4.0
 
 [node name="BoostEffect" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -8)
+position = Vector2(0, -19)
 emitting = false
+amount = 20
 lifetime = 0.2
-spread = 180.0
+texture = ExtResource("2_ecfe0")
+direction = Vector2(-1, 0)
+spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
-scale_amount_min = 4.0
-scale_amount_max = 4.0
-color = Color(0.947865, 0.293211, 0.484936, 1)
+scale_amount_min = 0.4
+scale_amount_max = 0.4
+color_initial_ramp = SubResource("Gradient_qwdu0")
 
 [node name="White-16x16" type="Sprite2D" parent="."]
 visible = false
