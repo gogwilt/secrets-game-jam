@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b8m6yl4vxq41k"]
+[gd_scene load_steps=32 format=3 uid="uid://b8m6yl4vxq41k"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_5otab"]
 [ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="1_7evac"]
@@ -11,6 +11,12 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ngxk"]
 size = Vector2(18, 36.875)
+
+[sub_resource type="Curve2D" id="Curve2D_6h3o1"]
+_data = {
+"points": PackedVector2Array(-0.297638, -5.85354, 0.297638, 5.85354, -30, -14, 0, 0, 0, 0, -27, -9, 0, 0, 0, 0, -24, -7, -8.82992, 0.198425, 8.82992, -0.198425, -4, -4, 0, 0, 0, 0, 24, -9, 0, 0, 0, 0, 27, -11, 0.0992126, 8.92913, -0.0992126, -8.92913, 29, -17, 0, 0, 0, 0, 27, -23, 0, 0, 0, 0, 25, -26, 0, 0, 0, 0, 0, -28, 6.21295, -4.62812, -6.21295, 4.62812, -23, -23, 0, 0, 0, 0, -28, -21, -0.235969, -6.54813, 0.235969, 6.54813, -30, -14)
+}
+point_count = 13
 
 [sub_resource type="Gradient" id="Gradient_qwdu0"]
 offsets = PackedFloat32Array(0.0233333, 0.48, 1)
@@ -156,6 +162,115 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Animation" id="Animation_hpulc"]
+resource_name = "boost_charged"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoostIndicator2/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoostIndicator2/Path2D/PathFollow2D2:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.25, 1.25]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoostIndicator2/Path2D/PathFollow2D3:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.485061, 1.5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoostIndicator2/Path2D/PathFollow2D4:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.75, 1.75]
+}
+
+[sub_resource type="Animation" id="Animation_b06x4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoostIndicator2/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoostIndicator2/Path2D/PathFollow2D2:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.485061]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoostIndicator2/Path2D/PathFollow2D3:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.485061]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoostIndicator2/Path2D/PathFollow2D4:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.485061]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qutqu"]
+_data = {
+"RESET": SubResource("Animation_b06x4"),
+"boost_charged": SubResource("Animation_hpulc")
+}
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("1_5otab")
@@ -164,17 +279,52 @@ script = ExtResource("1_5otab")
 position = Vector2(0, -18.5625)
 shape = SubResource("RectangleShape2D_6ngxk")
 
-[node name="BoostIndicator" type="CPUParticles2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(0, -8)
-emitting = false
-lifetime = 0.2
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 50.0
-initial_velocity_max = 100.0
-scale_amount_min = 4.0
-scale_amount_max = 4.0
+[node name="BoostIndicator2" type="Node2D" parent="."]
+position = Vector2(0, -19)
+
+[node name="Path2D" type="Path2D" parent="BoostIndicator2"]
+position = Vector2(0, 16)
+curve = SubResource("Curve2D_6h3o1")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
+position = Vector2(-30, -14)
+progress = 143.873
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D"]
+position = Vector2(-4.76837e-07, -1.07288e-06)
+scale = Vector2(0.25, 0.5)
+texture = ExtResource("1_7evac")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
+position = Vector2(29.001, -16.8356)
+progress = 69.7871
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D2"]
+position = Vector2(-4.76837e-07, -1.07288e-06)
+scale = Vector2(0.25, 0.5)
+texture = ExtResource("1_7evac")
+
+[node name="PathFollow2D3" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
+position = Vector2(29.001, -16.8356)
+progress = 69.7871
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D3"]
+position = Vector2(-4.76837e-07, -1.07288e-06)
+scale = Vector2(0.25, 0.5)
+texture = ExtResource("1_7evac")
+
+[node name="PathFollow2D4" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
+position = Vector2(29.001, -16.8356)
+progress = 69.7871
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D4"]
+position = Vector2(-4.76837e-07, -1.07288e-06)
+scale = Vector2(0.25, 0.5)
+texture = ExtResource("1_7evac")
 
 [node name="BoostEffect" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
@@ -201,7 +351,7 @@ texture = ExtResource("1_7evac")
 position = Vector2(1.42109e-14, -18)
 scale = Vector2(0.4, 0.4)
 sprite_frames = SubResource("SpriteFrames_3tl73")
-animation = &"boost"
+animation = &"run"
 
 [node name="StateMachine" parent="." instance=ExtResource("3_v4sdo")]
 
@@ -231,5 +381,10 @@ shape = SubResource("RectangleShape2D_6ngxk")
 unique_name_in_owner = true
 wait_time = 2.5
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qutqu")
+}
 
 [connection signal="timeout" from="BoostChargeTimer" to="." method="_on_boost_charge_timer_timeout"]

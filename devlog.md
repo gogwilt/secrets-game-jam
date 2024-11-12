@@ -234,3 +234,20 @@ behind them will be cool.
 particles behind the player.
 * Charged Boost Effect - have particles rotating around the player to indicate
 the charge.
+
+# Milestone 3 Entry: Player Art Continued (11/11)
+
+Added boost animation, and animated the long coat for the fall, run, and jump.
+
+I'm feeling very bullish on AI-generated sprite-sheets. A couple of things I've
+learned:
+* Separately animate the jacket/cape. When I animated the running sequence, the
+  long jacket disappeared. I think the AI generator works quite well when the
+  legs and arms are well-defined. On top of that, it's easy for me as a person to
+  draw those in separately. They're rather inexact, and especially for animations,
+  there should be some randomness there.
+* Edit the Skeleton. Editing the skeleton takes some getting used to, but it
+  feels totally worthwhile! In the future, I'd love to experiment with crafting
+  my own pixel art character (rather than generating one directly).
+* Plan on Regenerating A Lot. The regeneration usually goes fairly well, but the
+  inputs might change a lot.
