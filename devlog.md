@@ -251,3 +251,8 @@ learned:
   my own pixel art character (rather than generating one directly).
 * Plan on Regenerating A Lot. The regeneration usually goes fairly well, but the
   inputs might change a lot.
+
+# Milestone 3 Entry: Level Art (11/12)
+
+Added parallax layer for level 2, and some geometric details. Might be getting
+visually confusing.
