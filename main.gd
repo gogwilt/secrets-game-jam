@@ -31,6 +31,20 @@ func unpause() -> void:
 	$PauseMenu.visible = false
 
 func _on_level_select_menu_level_selected(level_name: String) -> void:
+	print(level_name)
+	if level_name == 'level_1':
+		$LevelSelectMenu.visible = false
+		Dialogic.timeline_ended.connect(_go_to_level_1)
+		Dialogic.start("level_1_intro")
+		get_viewport().set_input_as_handled()
+	else:
+		load_and_reset_level(level_name)
+	
+func _go_to_level_1() -> void:
+	Dialogic.timeline_ended.disconnect(_go_to_level_1)
+	load_and_reset_level('level_1')
+	
+func load_and_reset_level(level_name: String) -> void:
 	add_child(level_player)
 	level_player.load_level(level_name)
 	current_level_name = level_name
@@ -57,8 +71,18 @@ func _on_level_completed() -> void:
 	$LevelCompleteMenu.visible = true
 
 func _on_continue_button_pressed() -> void:
-	go_to_main_menu()
+	if current_level_name == 'level_1':
+		unpause()
+		$LevelCompleteMenu.visible = false
+		Dialogic.timeline_ended.connect(_disconnect_dialogic_and_go_to_main_menu)
+		Dialogic.start("level_1_outro")
+		get_viewport().set_input_as_handled()
+	else:
+		go_to_main_menu()
 
+func _disconnect_dialogic_and_go_to_main_menu() -> void:
+	Dialogic.timeline_ended.disconnect(_disconnect_dialogic_and_go_to_main_menu)
+	go_to_main_menu()
 
 func _on_restart_level_button_pressed() -> void:
 	level_player.load_level(current_level_name)

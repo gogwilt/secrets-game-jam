@@ -1,7 +1,8 @@
 join cluedomancer center
 cluedomancer: The Duchess held a small dinner last night. And at the end of the night, her priceless Enigma Locket was gone.
-cluedomancer: Only three others were present\: the Servant, the Lady, and the Gentleman.
+cluedomancer: Only three others were present\: the Servant, the Maiden, and the Gentleman.
 update cluedomancer left
 join duchess right
+duchess: Someone was probably jealous of my popularity. So sad that they would take advantage of my hospitality.
 cluedomancer: May I ask you a few questions?
 duchess: Certainly. Let us begin.
