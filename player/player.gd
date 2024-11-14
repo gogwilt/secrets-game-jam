@@ -11,6 +11,9 @@ var dimension_boost_charged: bool = false
 
 var current_direction: int = 1
 
+# Whether player inputs move the character (false when a level is completed)
+var can_move: bool = true
+
 const GRAVITY = 1200.0
 
 const JUMP_VELOCITY = -400.0
@@ -49,7 +52,7 @@ func _on_active_layer_updated() -> void:
 		%AlternateLevelDetector.set_collision_mask_value(1, true)
 
 func _physics_process(delta: float) -> void:
-	if ((Input.is_action_pressed("swap_layers") and active_layer == Dimension.MAIN)
+	if can_move and ((Input.is_action_pressed("swap_layers") and active_layer == Dimension.MAIN)
 		or
 		(not Input.is_action_pressed("swap_layers") and active_layer == Dimension.SUB)
 		):

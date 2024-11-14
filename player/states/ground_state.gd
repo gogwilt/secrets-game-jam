@@ -49,12 +49,12 @@ func update(delta: float) -> void:
 	pass
 
 func handle_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("jump"):
+	if player.can_move and Input.is_action_just_pressed("jump"):
 		player.velocity.y = Player.JUMP_VELOCITY
 		finished.emit(falling_state.name)
 		return
 	
-	if Input.is_action_just_pressed("boost"):
+	if player.can_move and Input.is_action_just_pressed("boost"):
 		player.position.y -= 10
 			
 		finished.emit(boost_state.name,{"boost_charged": player.dimension_boost_charged})

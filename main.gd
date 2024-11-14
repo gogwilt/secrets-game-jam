@@ -5,6 +5,7 @@ var level_player_scene = preload("res://concepts/level_player.tscn")
 var level_player: LevelPlayer
 var is_paused: bool = false
 var current_level_name: String
+var player: Player
 
 func _ready() -> void:
 	level_player = level_player_scene.instantiate()
@@ -37,18 +38,29 @@ func _on_level_select_menu_level_selected(level_name: String) -> void:
 		Dialogic.timeline_ended.connect(_go_to_level_1)
 		Dialogic.start("level_1_intro")
 		get_viewport().set_input_as_handled()
+	elif level_name == 'level_2':
+		$LevelSelectMenu.visible = false
+		Dialogic.timeline_ended.connect(_go_to_level_2)
+		Dialogic.start("level_2_intro")
+		get_viewport().set_input_as_handled()
 	else:
 		load_and_reset_level(level_name)
 	
 func _go_to_level_1() -> void:
 	Dialogic.timeline_ended.disconnect(_go_to_level_1)
 	load_and_reset_level('level_1')
+
+func _go_to_level_2() -> void:
+	Dialogic.timeline_ended.disconnect(_go_to_level_2)
+	load_and_reset_level('level_2')
 	
 func load_and_reset_level(level_name: String) -> void:
 	add_child(level_player)
 	level_player.load_level(level_name)
 	current_level_name = level_name
 	level_player.connect("level_completed", _on_level_completed)
+	player = get_tree().get_first_node_in_group("player")
+	player.can_move = true
 
 	# Bug fix: await then unpause, because _on_level_completed will likely fire.
 	# Without this, if you complete the level and then play it again, it will
@@ -67,6 +79,7 @@ func go_to_main_menu() -> void:
 	$LevelSelectMenu.visible = true
 
 func _on_level_completed() -> void:
+	player.can_move = false
 	pause(false)
 	$LevelCompleteMenu.visible = true
 
@@ -76,6 +89,12 @@ func _on_continue_button_pressed() -> void:
 		$LevelCompleteMenu.visible = false
 		Dialogic.timeline_ended.connect(_disconnect_dialogic_and_go_to_main_menu)
 		Dialogic.start("level_1_outro")
+		get_viewport().set_input_as_handled()
+	elif current_level_name == 'level_2':
+		unpause()
+		$LevelCompleteMenu.visible = false
+		Dialogic.timeline_ended.connect(_disconnect_dialogic_and_go_to_main_menu)
+		Dialogic.start("level_2_outro")
 		get_viewport().set_input_as_handled()
 	else:
 		go_to_main_menu()

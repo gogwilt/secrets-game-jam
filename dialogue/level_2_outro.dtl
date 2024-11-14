@@ -1,0 +1,8 @@
+join tarot-lovers center
+[wait time="1.0"]
+join tarot-lonely-tower right
+[wait time="1.0"]
+join servant (sad) left
+servant: You have found me out. The Maiden and I were in love -- or so I thought.
+servant: She promised me the world; that with one last plot she could take us away from all this.
+servant: It was her who took the locket. Of that I'm sure. But when I asked her about it, she dismissed me. She said she would not speak to me again.

@@ -24,6 +24,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "cluedomancer": "res://dialogue/cluedomancer.dch",
 "duchess": "res://dialogue/duchess.dch",
+"servant": "res://dialogue/servant.dch",
 "tarot-death": "res://dialogue/tarot-death.dch",
 "tarot-lonely-tower": "res://dialogue/tarot-lonely-tower.dch",
 "tarot-lovers": "res://dialogue/tarot-lovers.dch"
@@ -31,7 +32,9 @@ directories/dch_directory={
 directories/dtl_directory={
 "intro": "res://dialogue/intro.dtl",
 "level_1_intro": "res://dialogue/level_1_intro.dtl",
-"level_1_outro": "res://dialogue/level_1_outro.dtl"
+"level_1_outro": "res://dialogue/level_1_outro.dtl",
+"level_2_intro": "res://dialogue/level_2_intro.dtl",
+"level_2_outro": "res://dialogue/level_2_outro.dtl"
 }
 layout/style_list=[]
 layout/default_style="Default"

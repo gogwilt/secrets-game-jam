@@ -264,4 +264,4 @@ Installed 2.0-alpha-16 of Dialogic.
 Things are getting pretty scrappy, but I like where they're headed. Dialogic
 makes things super easy, so I'm glad I tried it.
 
-I've been generating the heck out of anime characters, and it's going OK.
+I've been AI generating the heck out of anime characters, and it's going OK.
