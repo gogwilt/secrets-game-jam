@@ -256,3 +256,7 @@ learned:
 
 Added parallax layer for level 2, and some geometric details. Might be getting
 visually confusing.
+
+# Milestone 3 Entry: Dialog with Dialogic (11/13)
+
+Installed 2.0-alpha-16 of Dialogic.

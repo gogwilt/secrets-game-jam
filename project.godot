@@ -21,8 +21,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
+directories/dch_directory={
+"cluedomancer": "res://dialogue/cluedomancer.dch",
+"duchess": "res://dialogue/duchess.dch"
+}
+directories/dtl_directory={
+"intro": "res://dialogue/intro.dtl",
+"level_1_intro": "res://dialogue/level_1_intro.dtl"
+}
+layout/style_list=[]
+layout/default_style="Default"
 
 [display]
 
