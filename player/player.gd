@@ -62,7 +62,7 @@ func _physics_process(delta: float) -> void:
 			_on_active_layer_updated()
 			layers_switched.emit(active_layer)
 
-	var direction := Input.get_axis("move_left", "move_right")
+	var direction := Input.get_axis("move_left", "move_right") if can_move else 0.0
 	var unit_direction := 0 if direction == 0 else 1 if direction > 0 else -1
 	if unit_direction and current_direction != unit_direction:
 		current_direction = unit_direction

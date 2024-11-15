@@ -148,8 +148,8 @@ offset_bottom = 0.0
 grow_vertical = 0
 portrait_image = ExtResource("4_0svjj")
 character_name = "Dimension Boost"
-dialog = "Charge your boost in the secret dimension. Boost to cross chasms or move quickly.
-J - Boost. Use WASD to define your boost directon."
+dialog = "L - Dash. Use WASD to control direction.
+Charge your dash in the secret dimension (J), so you can cross chasms or move quickly."
 
 [node name="SwitchDimensions" parent="TutorialKeyboard" instance=ExtResource("3_v3wcs")]
 anchors_preset = 7
@@ -165,7 +165,7 @@ grow_vertical = 0
 portrait_image = ExtResource("4_0svjj")
 character_name = "Switch Dimensions"
 dialog = "Every level has a secret dimension that you can access. Try switching if you seem stuck.
-J - Switch dimensions. Hold J to stay in the secret dimension."
+J - Switch dimensions. Hold to stay in the secret dimension."
 
 [node name="Movement" parent="TutorialKeyboard" instance=ExtResource("3_v3wcs")]
 anchors_preset = 7
@@ -182,7 +182,7 @@ portrait_image = ExtResource("4_0svjj")
 character_name = "Movement"
 dialog = "Find a way to get to the end of the level.
 WASD - Move around.
-K - Jump and double-jump."
+K - Jump."
 
 [node name="TutorialController" type="CanvasLayer" parent="."]
 visible = false
@@ -200,8 +200,8 @@ offset_bottom = 0.0
 grow_vertical = 0
 portrait_image = ExtResource("4_0svjj")
 character_name = "Dimension Boost"
-dialog = "Charge your boost in the secret dimension. Boost to cross chasms or move quickly.
-B/Square - Boost. Use left control stick to define your boost directon."
+dialog = "B / Square - Dash. Use the control stick to control direction.
+Charge your dash in the secret dimension (RT/R2), so you can cross chasms or move quickly."
 
 [node name="SwitchDimensions" parent="TutorialController" instance=ExtResource("3_v3wcs")]
 anchors_preset = 7
@@ -217,7 +217,7 @@ grow_vertical = 0
 portrait_image = ExtResource("4_0svjj")
 character_name = "Switch Dimensions"
 dialog = "Every level has a secret dimension that you can access. Try switching if you seem stuck.
-B/Square - Switch dimensions. Hold B/Square to stay in the secret dimension."
+RT/R2 - Switch dimensions. Hold to stay in the secret dimension."
 
 [node name="Movement" parent="TutorialController" instance=ExtResource("3_v3wcs")]
 anchors_preset = 7
@@ -234,7 +234,7 @@ portrait_image = ExtResource("4_0svjj")
 character_name = "Movement"
 dialog = "Find a way to get to the end of the level.
 Left Stick - Move around.
-A/X - Jump and double-jump."
+A/X - Jump."
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
 

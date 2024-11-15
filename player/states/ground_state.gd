@@ -15,7 +15,7 @@ func physics_update(delta: float) -> void:
 		finished.emit(falling_state.name)
 		return
 
-	var direction := Input.get_axis("move_left", "move_right")
+	var direction := Input.get_axis("move_left", "move_right") if player.can_move else 0.0
 	var unit_direction := 0 if direction == 0 else 1 if direction > 0 else -1
 	var is_switching_direction = direction and (
 		(player.velocity.x > 0 and direction < 0) or
