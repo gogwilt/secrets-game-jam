@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://concepts/levels/level_1.gd" id="1_funlj"]
 [ext_resource type="Texture2D" uid="uid://ccldoal5wn2qm" path="res://assets/forest-background.png" id="2_0c0v5"]
 [ext_resource type="PackedScene" uid="uid://81fodyphn848" path="res://dialogue/portrait_dialogue_box.tscn" id="3_v3wcs"]
-[ext_resource type="Texture2D" uid="uid://qbi87ve00g1v" path="res://assets/black-16x16.png" id="4_0svjj"]
 [ext_resource type="Texture2D" uid="uid://cato4akygdsa7" path="res://assets/dead-forest-background.png" id="4_2ve3p"]
+[ext_resource type="Texture2D" uid="uid://cnportr11gxev" path="res://assets/characters/cluedomancer-portrait.png" id="6_wmjx0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2iug"]
 texture = ExtResource("1_2rj4f")
@@ -169,7 +169,7 @@ offset_top = -184.0
 offset_right = 168.5
 offset_bottom = 0.0
 grow_vertical = 0
-portrait_image = ExtResource("4_0svjj")
+portrait_image = ExtResource("6_wmjx0")
 character_name = "Dimension Boost"
 dialog = "L - Dash. Use WASD to control direction.
 Charge your dash in the secret dimension (J), so you can cross chasms or move quickly."
@@ -185,7 +185,7 @@ offset_top = -184.0
 offset_right = 168.5
 offset_bottom = 0.0
 grow_vertical = 0
-portrait_image = ExtResource("4_0svjj")
+portrait_image = ExtResource("6_wmjx0")
 character_name = "Switch Dimensions"
 dialog = "Every level has a secret dimension that you can access. Try switching if you seem stuck.
 J - Switch dimensions. Hold to stay in the secret dimension."
@@ -201,7 +201,7 @@ offset_top = -184.0
 offset_right = 168.5
 offset_bottom = 0.0
 grow_vertical = 0
-portrait_image = ExtResource("4_0svjj")
+portrait_image = ExtResource("6_wmjx0")
 character_name = "Movement"
 dialog = "Find a way to get to the end of the level.
 WASD - Move around.
@@ -221,7 +221,7 @@ offset_top = -184.0
 offset_right = 168.5
 offset_bottom = 0.0
 grow_vertical = 0
-portrait_image = ExtResource("4_0svjj")
+portrait_image = ExtResource("6_wmjx0")
 character_name = "Dimension Boost"
 dialog = "B / Square - Dash. Use the control stick to control direction.
 Charge your dash in the secret dimension (RT/R2), so you can cross chasms or move quickly."
@@ -237,7 +237,7 @@ offset_top = -184.0
 offset_right = 168.5
 offset_bottom = 0.0
 grow_vertical = 0
-portrait_image = ExtResource("4_0svjj")
+portrait_image = ExtResource("6_wmjx0")
 character_name = "Switch Dimensions"
 dialog = "Every level has a secret dimension that you can access. Try switching if you seem stuck.
 RT/R2 - Switch dimensions. Hold to stay in the secret dimension."
@@ -253,7 +253,7 @@ offset_top = -184.0
 offset_right = 168.5
 offset_bottom = 0.0
 grow_vertical = 0
-portrait_image = ExtResource("4_0svjj")
+portrait_image = ExtResource("6_wmjx0")
 character_name = "Movement"
 dialog = "Find a way to get to the end of the level.
 Left Stick - Move around.

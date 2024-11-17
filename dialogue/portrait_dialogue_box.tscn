@@ -29,9 +29,12 @@ offset_bottom = 152.0
 
 [node name="Portrait" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 40.0
+offset_left = -72.0
+offset_right = -32.0
 offset_bottom = 40.0
+scale = Vector2(2.73003, 2.73003)
 texture = ExtResource("1_0jjmw")
+expand_mode = 2
 
 [node name="Text" type="Label" parent="."]
 layout_mode = 0
