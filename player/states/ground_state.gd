@@ -2,10 +2,10 @@ extends State
 
 @export var player: Player
 @export var falling_state: State
-@export var boost_state: State
+@export var boost_state: BoostState
 
 func enter(prev_state: String, data:= {}) -> void:
-	pass
+	boost_state.count_boosts_in_air = 0
 	
 func exit() -> void:
 	pass
@@ -54,7 +54,7 @@ func handle_input(event: InputEvent) -> void:
 		finished.emit(falling_state.name)
 		return
 	
-	if player.can_move and Input.is_action_just_pressed("boost"):
+	if player.can_move and Input.is_action_just_pressed("boost") and boost_state.can_boost():
 		player.position.y -= 10
 			
 		finished.emit(boost_state.name,{"boost_charged": player.dimension_boost_charged})

@@ -1,8 +1,10 @@
-extends State
+class_name BoostState extends State
 
 @export var player: Player
 @export var falling_state: State
 @export var ground_state: State
+
+var count_boosts_in_air := 0
 
 func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
 	var speed = Player.BOOST_SPEED_UNCHARGED
@@ -25,6 +27,8 @@ func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
 		player.animate_boost_down()
 	else:
 		player.animate_boost()
+		
+	count_boosts_in_air += 1
 	
 func exit() -> void:
 	$Timer.stop()
@@ -51,3 +55,6 @@ func _on_timer_timeout() -> void:
 		finished.emit(ground_state.name)
 	else:
 		finished.emit(falling_state.name)
+	
+func can_boost() -> bool:
+	return count_boosts_in_air < 2
