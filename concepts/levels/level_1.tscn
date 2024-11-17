@@ -61,7 +61,7 @@ player_start_position = NodePath("PlayerStartLocation")
 level_end_area = NodePath("LevelEndArea")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-scroll_scale = Vector2(0.4, 0)
+scroll_scale = Vector2(0.4, 0.1)
 repeat_size = Vector2(735, 572)
 repeat_times = 5
 
@@ -88,7 +88,7 @@ tile_set = SubResource("TileSet_v1sf2")
 collision_enabled = false
 
 [node name="Parallax2D" type="Parallax2D" parent="SubLayerGroup"]
-scroll_scale = Vector2(0.4, 0)
+scroll_scale = Vector2(0.4, 0.1)
 repeat_size = Vector2(735, 572)
 repeat_times = 5
 
