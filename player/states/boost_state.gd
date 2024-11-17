@@ -5,11 +5,16 @@ class_name BoostState extends State
 @export var ground_state: State
 
 var count_boosts_in_air := 0
+var boost_charged := false
 
 func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
+	if data.boost_charged:
+		boost_charged = true
+	
 	var speed = Player.BOOST_SPEED_UNCHARGED
 	var time = Player.BOOST_TIME_UNCHARGED
-	if data.boost_charged:
+	if boost_charged:
+		player.use_boost()
 		speed = Player.BOOST_SPEED_CHARGED
 		time = Player.BOOST_TIME_CHARGED
 	
@@ -58,3 +63,7 @@ func _on_timer_timeout() -> void:
 	
 func can_boost() -> bool:
 	return count_boosts_in_air < 2
+	
+func reset() -> void:
+	count_boosts_in_air = 0
+	boost_charged = false

@@ -5,7 +5,7 @@ extends State
 @export var boost_state: BoostState
 
 func enter(prev_state: String, data:= {}) -> void:
-	boost_state.count_boosts_in_air = 0
+	boost_state.reset()
 	
 func exit() -> void:
 	pass
@@ -58,5 +58,3 @@ func handle_input(event: InputEvent) -> void:
 		player.position.y -= 10
 			
 		finished.emit(boost_state.name,{"boost_charged": player.dimension_boost_charged})
-		if player.dimension_boost_charged:
-			player.use_boost()

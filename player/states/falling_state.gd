@@ -54,5 +54,3 @@ func physics_update(delta: float) -> void:
 func update(delta: float) -> void:
 	if Input.is_action_just_pressed("boost") and boost_state.can_boost():
 		finished.emit(boost_state.name,{"boost_charged": player.dimension_boost_charged})
-		if player.dimension_boost_charged:
-			player.use_boost()
