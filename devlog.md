@@ -277,3 +277,7 @@ Background itself was LayerAI.
 
 Updated the cards to use the Tarot card designs. They move fast enough, that you
 can't really make them out anyway.
+
+I may use a CC0 set of assets for the Tarot cards.
+
+Tarot card images: https://luciellaes.itch.io/rider-waite-smith-tarot-cards-cc0
