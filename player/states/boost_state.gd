@@ -46,13 +46,31 @@ func update(delta: float) -> void:
 	pass
 
 func handle_input(event: InputEvent) -> void:
+	
+	# Allow jump during a boost. Jumping ends boost
 	if Input.is_action_just_pressed("jump"):
 		player.velocity.y = Player.JUMP_VELOCITY
 		finished.emit(falling_state.name)
 		return
 		
+	# Allow player to adjust direction while boosting
+	# If player tries to go in the opposite direction, end boost
+	# Weigh new direction less when delta is larger to create smooth feel
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	if direction.length_squared() > 0 and direction.angle_to(player.velocity) > PI / 2:
+	if direction.length_squared() > 0:
+		var angle = rad_to_deg(direction.angle_to(player.velocity))
+		
+		if abs(angle) > 120:
+			player.velocity = Vector2(0,0)
+		
+		else:
+			var weight = (180-abs(angle))/360
+			var current_speed = player.velocity.length() 
+			var current_direction = player.velocity.normalized()
+			var blended_direction = current_direction.lerp(direction.normalized(), weight)
+			player.velocity = blended_direction.normalized() * current_speed
+		
+	if player.velocity.length_squared() == 0:
 		finished.emit(falling_state.name)
 
 func _on_timer_timeout() -> void:
