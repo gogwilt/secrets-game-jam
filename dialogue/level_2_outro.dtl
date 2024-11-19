@@ -1,7 +1,7 @@
 join tarot-lovers center
-[wait time="1.0"]
+[wait time="1.0" skippable="true"]
 join tarot-lonely-tower right
-[wait time="1.0"]
+[wait time="1.0" skippable="true"]
 join servant (sad) left
 servant: You have found me out. The Maiden and I were in love -- or so I thought.
 servant: She promised me the world; that with one last plot she could take us away from all this.

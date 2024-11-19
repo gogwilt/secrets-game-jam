@@ -281,3 +281,9 @@ can't really make them out anyway.
 I may use a CC0 set of assets for the Tarot cards.
 
 Tarot card images: https://luciellaes.itch.io/rider-waite-smith-tarot-cards-cc0
+
+# Milestone 3 Entry: Level Select (11/17)
+
+Updated the level select screen to look like a table with cards. Opted for the
+CC0 Tarot cards listed above, since generating consistent assets felt like it
+would be difficult, for very little additional gain.

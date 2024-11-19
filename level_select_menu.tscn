@@ -1,15 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmg1a87djoblf"]
+[gd_scene load_steps=10 format=3 uid="uid://bmg1a87djoblf"]
 
 [ext_resource type="Script" path="res://level_select_menu.gd" id="1_v4h1n"]
 [ext_resource type="Script" path="res://grab_focus.gd" id="2_8f783"]
+[ext_resource type="Texture2D" uid="uid://ka1x80ub8csv" path="res://assets/table-top.webp" id="2_can41"]
+[ext_resource type="Texture2D" uid="uid://du01jygyiu6pf" path="res://assets/cards/03-TheEmpress.png" id="4_ipv4k"]
+[ext_resource type="FontFile" uid="uid://dayfi14dc2hml" path="res://assets/fonts/KiriFont.otf" id="5_0e6i6"]
+[ext_resource type="Texture2D" uid="uid://4331ut4jhru2" path="res://assets/cards/00-TheFool.png" id="5_gjwt5"]
+[ext_resource type="Texture2D" uid="uid://biij7r6oc1k86" path="res://assets/cards/08-Strength.png" id="6_ch17b"]
+[ext_resource type="Texture2D" uid="uid://brfg0vnoksues" path="res://assets/cards/09-TheHermit.png" id="7_n35hv"]
+[ext_resource type="Texture2D" uid="uid://da2l8mckv6deq" path="res://assets/cluedomancer-wordmark.png" id="9_tl0qf"]
 
 [node name="LevelSelectMenu" type="CanvasLayer"]
 script = ExtResource("1_v4h1n")
 
+[node name="Table-top" type="Sprite2D" parent="."]
+position = Vector2(573, 352)
+scale = Vector2(1.16309, 1.16309)
+texture = ExtResource("2_can41")
+region_enabled = true
+region_rect = Rect2(0, 212.63, 1024, 617.715)
+
 [node name="Level1" type="Button" parent="." node_paths=PackedStringArray("menu_container")]
 offset_left = 501.0
-offset_top = 50.0
-offset_right = 658.0
+offset_top = 27.0
+offset_right = 643.0
 offset_bottom = 275.0
 focus_neighbor_bottom = NodePath("../Level2")
 focus_next = NodePath("../Level2")
@@ -18,11 +32,67 @@ text = "The Duchess
 script = ExtResource("2_8f783")
 menu_container = NodePath("..")
 
+[node name="03-theEmpress" type="Sprite2D" parent="Level1"]
+position = Vector2(70.75, 122.804)
+scale = Vector2(0.468333, 0.468333)
+texture = ExtResource("4_ipv4k")
+
+[node name="ColorRect" type="ColorRect" parent="Level1"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 5.0
+offset_right = 97.0
+offset_bottom = 21.0
+color = Color(0.960784, 0.854902, 0.329412, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Level1"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 228.0
+offset_right = 136.0
+offset_bottom = 242.0
+color = Color(0.721569, 0.682353, 0.67451, 1)
+
+[node name="Label" type="Label" parent="Level1"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.0
+offset_top = 8.0
+offset_right = 33.0
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_0e6i6")
+theme_override_font_sizes/font_size = 10
+text = "Level 1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Level1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -19.0
+offset_right = 54.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_0e6i6")
+theme_override_font_sizes/font_size = 13
+text = "The Duchess."
+horizontal_alignment = 1
+
 [node name="Level2" type="Button" parent="."]
 offset_left = 213.0
 offset_top = 332.0
-offset_right = 370.0
-offset_bottom = 557.0
+offset_right = 358.0
+offset_bottom = 579.0
 focus_neighbor_top = NodePath("../Level1")
 focus_neighbor_right = NodePath("../Level3")
 focus_neighbor_bottom = NodePath("../Level3")
@@ -31,11 +101,63 @@ focus_previous = NodePath("../Level1")
 text = "The Servant
 (Level 2)"
 
+[node name="00-theFool" type="Sprite2D" parent="Level2"]
+position = Vector2(73, 123)
+scale = Vector2(0.468, 0.468)
+texture = ExtResource("5_gjwt5")
+
+[node name="ColorRect" type="ColorRect" parent="Level2/00-theFool"]
+offset_left = -21.3675
+offset_top = -250.0
+offset_right = 8.63251
+offset_bottom = -218.0
+color = Color(0.960784, 0.854902, 0.329412, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Level2/00-theFool"]
+offset_left = -132.0
+offset_top = 226.0
+offset_right = 136.0
+offset_bottom = 254.0
+color = Color(0.772549, 0.737255, 0.709804, 1)
+
+[node name="Label" type="Label" parent="Level2/00-theFool"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -186.325
+offset_top = -243.59
+offset_right = -115.325
+offset_bottom = -220.59
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_0e6i6")
+theme_override_font_sizes/font_size = 20
+text = "Level 2"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Level2/00-theFool"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -267.521
+offset_top = -298.367
+offset_right = -36.5214
+offset_bottom = -270.367
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_0e6i6")
+theme_override_font_sizes/font_size = 27
+text = "The Servant."
+horizontal_alignment = 1
+
 [node name="Level3" type="Button" parent="."]
 offset_left = 503.0
 offset_top = 325.0
-offset_right = 660.0
-offset_bottom = 550.0
+offset_right = 646.0
+offset_bottom = 573.0
 focus_neighbor_left = NodePath("../Level2")
 focus_neighbor_top = NodePath("../Level1")
 focus_neighbor_right = NodePath("../Level4")
@@ -46,17 +168,135 @@ disabled = true
 text = "The Maiden
 (Level 3)"
 
+[node name="08-strength" type="Sprite2D" parent="Level3"]
+position = Vector2(71, 123)
+scale = Vector2(0.468, 0.468)
+texture = ExtResource("6_ch17b")
+
+[node name="ColorRect" type="ColorRect" parent="Level3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.5
+offset_top = 6.0
+offset_right = 15.5
+offset_bottom = 20.0
+grow_horizontal = 2
+color = Color(0.960784, 0.854902, 0.329412, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Level3"]
+offset_left = 6.0
+offset_top = 229.0
+offset_right = 133.0
+offset_bottom = 241.0
+color = Color(0.772549, 0.737255, 0.709804, 1)
+
+[node name="Label" type="Label" parent="Level3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -45.5
+offset_top = 8.0
+offset_right = 46.5
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_0e6i6")
+theme_override_font_sizes/font_size = 10
+text = "Level 3"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Level3"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -115.5
+offset_top = -18.0
+offset_right = 115.5
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_0e6i6")
+theme_override_font_sizes/font_size = 12
+text = "The Maiden."
+horizontal_alignment = 1
+
 [node name="Level4" type="Button" parent="."]
 offset_left = 796.0
 offset_top = 327.0
-offset_right = 953.0
-offset_bottom = 552.0
+offset_right = 938.0
+offset_bottom = 575.0
 focus_neighbor_left = NodePath("../Level3")
 focus_neighbor_top = NodePath("../Level1")
 focus_previous = NodePath("../Level3")
 disabled = true
 text = "The Gentleman
 (Level 4)"
+
+[node name="09-theHermit" type="Sprite2D" parent="Level4"]
+position = Vector2(71, 123)
+scale = Vector2(0.468, 0.468)
+texture = ExtResource("7_n35hv")
+
+[node name="ColorRect" type="ColorRect" parent="Level4"]
+offset_left = 40.0
+offset_top = 5.0
+offset_right = 97.0
+offset_bottom = 15.0
+color = Color(0.52549, 0.623529, 0.65098, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Level4"]
+offset_left = 7.0
+offset_top = 228.0
+offset_right = 136.0
+offset_bottom = 242.0
+color = Color(0.721569, 0.682353, 0.67451, 1)
+
+[node name="Label" type="Label" parent="Level4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.0
+offset_top = 8.0
+offset_right = 33.0
+offset_bottom = 31.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_0e6i6")
+theme_override_font_sizes/font_size = 10
+text = "Level 4"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="Level4"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -54.0
+offset_top = -19.0
+offset_right = 54.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_0e6i6")
+theme_override_font_sizes/font_size = 13
+text = "The Gentleman."
+horizontal_alignment = 1
+
+[node name="Cluedomancer" type="Sprite2D" parent="."]
+position = Vector2(140, 141)
+scale = Vector2(0.249235, 0.249235)
+texture = ExtResource("9_tl0qf")
 
 [connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
