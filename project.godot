@@ -14,8 +14,8 @@ config/name="Cluedomancer"
 config/description="In this puzzle platformer, you play as an occult detective, investigating the theft of the Enigma Locket."
 run/main_scene="res://title_screen.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
-boot_splash/image="res://assets/cluedomancer.png"
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/cluedomancer-wordmark.png"
+config/icon="res://assets/icon.png"
 
 [autoload]
 
