@@ -11,6 +11,7 @@ func _ready() -> void:
 		%Continue.disabled = true
 
 func _on_new_game_pressed() -> void:
+	%CluedomancerSaveState.on_new_game()
 	$VBoxContainer.visible = false
 	$Node2D.visible = false
 	Dialogic.timeline_ended.connect(_on_timeline_ended)

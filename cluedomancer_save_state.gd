@@ -32,6 +32,11 @@ func has_save_data() -> bool:
 	var version = save_file.get_line()
 	return version == VERSION
 	
+func on_new_game() -> void:
+	level_info = []
+	save_game()
+	save_data_updated.emit()
+	
 func on_level_complete(level_name: String) -> void:
 	var level_data: Dictionary
 	for d: Dictionary in level_info:
