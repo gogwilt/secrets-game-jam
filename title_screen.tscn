@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4qqgn3ykey7v"]
+[gd_scene load_steps=13 format=3 uid="uid://c4qqgn3ykey7v"]
 
 [ext_resource type="Script" path="res://title_screen.gd" id="1_52ws4"]
 [ext_resource type="Texture2D" uid="uid://kni8v813lp3c" path="res://assets/characters/cluedomancer-full-shot.png" id="1_m3oq4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bkf6syfwft7hb" path="res://assets/cards/tarot-card-death.png" id="5_ltn8g"]
 [ext_resource type="Texture2D" uid="uid://bk1ovpn0qdoue" path="res://assets/cards/tarot-card-lovers.png" id="6_5gwcc"]
 [ext_resource type="Texture2D" uid="uid://bv1islhiqkv5u" path="res://assets/cards/tarot-card-tower.png" id="7_qxqnr"]
+[ext_resource type="PackedScene" uid="uid://hxty10rku3tl" path="res://cluedomancer_save_state.tscn" id="8_i548b"]
 
 [sub_resource type="Animation" id="Animation_b06x4"]
 length = 0.001
@@ -242,6 +243,9 @@ position = Vector2(-4.76837e-07, -1.07288e-06)
 rotation = 0.336414
 scale = Vector2(0.1, 0.13)
 texture = ExtResource("5_ltn8g")
+
+[node name="CluedomancerSaveState" parent="." instance=ExtResource("8_i548b")]
+unique_name_in_owner = true
 
 [connection signal="pressed" from="VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
 [connection signal="pressed" from="VBoxContainer/Continue" to="." method="_on_continue_pressed"]

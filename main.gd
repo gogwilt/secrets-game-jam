@@ -8,6 +8,7 @@ var current_level_name: String
 var player: Player
 
 func _ready() -> void:
+	%CluedomancerSaveState.load_game()
 	level_player = level_player_scene.instantiate()
 	$LevelCompleteMenu.visible = false
 	$PauseMenu.visible = false
@@ -32,7 +33,6 @@ func unpause() -> void:
 	$PauseMenu.visible = false
 
 func _on_level_select_menu_level_selected(level_name: String) -> void:
-	print(level_name)
 	if level_name == 'level_1':
 		$LevelSelectMenu.visible = false
 		Dialogic.timeline_ended.connect(_go_to_level_1)
@@ -78,10 +78,12 @@ func go_to_main_menu() -> void:
 	$PauseMenu.visible = false
 	$LevelSelectMenu.visible = true
 
-func _on_level_completed() -> void:
+func _on_level_completed(_level_name) -> void:
 	player.can_move = false
 	pause(false)
 	$LevelCompleteMenu.visible = true
+	%CluedomancerSaveState.on_level_complete(current_level_name)
+	%CluedomancerSaveState.save_game()
 
 func _on_continue_button_pressed() -> void:
 	if current_level_name == 'level_1':

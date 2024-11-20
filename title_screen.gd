@@ -4,7 +4,11 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimationPlayer.play("boost_charged")
-	%NewGame.grab_focus()
+	if %CluedomancerSaveState.has_save_data():
+		%Continue.grab_focus()
+	else:
+		%NewGame.grab_focus()
+		%Continue.disabled = true
 
 func _on_new_game_pressed() -> void:
 	$VBoxContainer.visible = false

@@ -1,14 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://wkduvd34do2n"]
+[gd_scene load_steps=5 format=3 uid="uid://wkduvd34do2n"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ajyqa"]
 [ext_resource type="PackedScene" uid="uid://bmg1a87djoblf" path="res://level_select_menu.tscn" id="2_8jul3"]
 [ext_resource type="Script" path="res://grab_focus.gd" id="3_38g8a"]
+[ext_resource type="PackedScene" uid="uid://hxty10rku3tl" path="res://cluedomancer_save_state.tscn" id="4_4j1qh"]
 
 [node name="Main" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_ajyqa")
 
-[node name="LevelSelectMenu" parent="." instance=ExtResource("2_8jul3")]
+[node name="LevelSelectMenu" parent="." node_paths=PackedStringArray("save_state") instance=ExtResource("2_8jul3")]
+save_state = NodePath("../CluedomancerSaveState")
 
 [node name="LevelCompleteMenu" type="CanvasLayer" parent="."]
 
@@ -70,6 +72,9 @@ menu_container = NodePath("../..")
 [node name="BackToLevelSelectButton" type="Button" parent="PauseMenu/VBoxContainer"]
 layout_mode = 2
 text = "Back to Level Select"
+
+[node name="CluedomancerSaveState" parent="." instance=ExtResource("4_4j1qh")]
+unique_name_in_owner = true
 
 [connection signal="level_selected" from="LevelSelectMenu" to="." method="_on_level_select_menu_level_selected"]
 [connection signal="pressed" from="LevelCompleteMenu/ContinueButton" to="." method="_on_continue_button_pressed"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hxty10rku3tl"]
+
+[ext_resource type="Script" path="res://cluedomancer_save_state.gd" id="1_rrmb1"]
+
+[node name="CluedomancerSaveState" type="Node" groups=["save_state"]]
+script = ExtResource("1_rrmb1")

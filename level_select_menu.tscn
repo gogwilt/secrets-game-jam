@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://bmg1a87djoblf"]
 
 [ext_resource type="Script" path="res://level_select_menu.gd" id="1_v4h1n"]
-[ext_resource type="Script" path="res://grab_focus.gd" id="2_8f783"]
 [ext_resource type="Texture2D" uid="uid://ka1x80ub8csv" path="res://assets/table-top.webp" id="2_can41"]
 [ext_resource type="Texture2D" uid="uid://du01jygyiu6pf" path="res://assets/cards/03-TheEmpress.png" id="4_ipv4k"]
 [ext_resource type="FontFile" uid="uid://dayfi14dc2hml" path="res://assets/fonts/KiriFont.otf" id="5_0e6i6"]
 [ext_resource type="Texture2D" uid="uid://4331ut4jhru2" path="res://assets/cards/00-TheFool.png" id="5_gjwt5"]
 [ext_resource type="Texture2D" uid="uid://biij7r6oc1k86" path="res://assets/cards/08-Strength.png" id="6_ch17b"]
+[ext_resource type="Texture2D" uid="uid://bl5npikx2gx7l" path="res://assets/cards/tarot-back.png" id="6_sryfx"]
 [ext_resource type="Texture2D" uid="uid://brfg0vnoksues" path="res://assets/cards/09-TheHermit.png" id="7_n35hv"]
 [ext_resource type="Texture2D" uid="uid://da2l8mckv6deq" path="res://assets/cluedomancer-wordmark.png" id="9_tl0qf"]
 
@@ -20,7 +20,7 @@ texture = ExtResource("2_can41")
 region_enabled = true
 region_rect = Rect2(0, 212.63, 1024, 617.715)
 
-[node name="Level1" type="Button" parent="." node_paths=PackedStringArray("menu_container")]
+[node name="Level1" type="Button" parent="."]
 offset_left = 501.0
 offset_top = 27.0
 offset_right = 643.0
@@ -29,8 +29,6 @@ focus_neighbor_bottom = NodePath("../Level2")
 focus_next = NodePath("../Level2")
 text = "The Duchess
 (Level 1)"
-script = ExtResource("2_8f783")
-menu_container = NodePath("..")
 
 [node name="03-theEmpress" type="Sprite2D" parent="Level1"]
 position = Vector2(70.75, 122.804)
@@ -87,6 +85,11 @@ theme_override_fonts/font = ExtResource("5_0e6i6")
 theme_override_font_sizes/font_size = 13
 text = "The Duchess."
 horizontal_alignment = 1
+
+[node name="CardBack" type="Sprite2D" parent="Level1"]
+position = Vector2(71, 122)
+scale = Vector2(0.466666, 0.466666)
+texture = ExtResource("6_sryfx")
 
 [node name="Level2" type="Button" parent="."]
 offset_left = 213.0
@@ -153,6 +156,11 @@ theme_override_font_sizes/font_size = 27
 text = "The Servant."
 horizontal_alignment = 1
 
+[node name="CardBack" type="Sprite2D" parent="Level2"]
+position = Vector2(72, 122)
+scale = Vector2(0.466666, 0.466666)
+texture = ExtResource("6_sryfx")
+
 [node name="Level3" type="Button" parent="."]
 offset_left = 503.0
 offset_top = 325.0
@@ -186,6 +194,7 @@ grow_horizontal = 2
 color = Color(0.960784, 0.854902, 0.329412, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Level3"]
+layout_mode = 0
 offset_left = 6.0
 offset_top = 229.0
 offset_right = 133.0
@@ -227,6 +236,22 @@ theme_override_font_sizes/font_size = 12
 text = "The Maiden."
 horizontal_alignment = 1
 
+[node name="ComingSoon" type="Label" parent="Level3"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 25.0
+offset_right = 136.0
+offset_bottom = 42.0
+theme_override_colors/font_color = Color(0.83, 0.3403, 0.511695, 1)
+theme_override_fonts/font = ExtResource("5_0e6i6")
+theme_override_font_sizes/font_size = 14
+text = "COMING SOON"
+
+[node name="CardBack" type="Sprite2D" parent="Level3"]
+position = Vector2(71, 122)
+scale = Vector2(0.466666, 0.466666)
+texture = ExtResource("6_sryfx")
+
 [node name="Level4" type="Button" parent="."]
 offset_left = 796.0
 offset_top = 327.0
@@ -245,6 +270,7 @@ scale = Vector2(0.468, 0.468)
 texture = ExtResource("7_n35hv")
 
 [node name="ColorRect" type="ColorRect" parent="Level4"]
+layout_mode = 0
 offset_left = 40.0
 offset_top = 5.0
 offset_right = 97.0
@@ -252,6 +278,7 @@ offset_bottom = 15.0
 color = Color(0.52549, 0.623529, 0.65098, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="Level4"]
+layout_mode = 0
 offset_left = 7.0
 offset_top = 228.0
 offset_right = 136.0
@@ -292,6 +319,11 @@ theme_override_fonts/font = ExtResource("5_0e6i6")
 theme_override_font_sizes/font_size = 13
 text = "The Gentleman."
 horizontal_alignment = 1
+
+[node name="CardBack" type="Sprite2D" parent="Level4"]
+position = Vector2(71, 122)
+scale = Vector2(0.466666, 0.466666)
+texture = ExtResource("6_sryfx")
 
 [node name="Cluedomancer" type="Sprite2D" parent="."]
 position = Vector2(140, 141)

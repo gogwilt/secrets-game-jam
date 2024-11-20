@@ -287,3 +287,8 @@ Tarot card images: https://luciellaes.itch.io/rider-waite-smith-tarot-cards-cc0
 Updated the level select screen to look like a table with cards. Opted for the
 CC0 Tarot cards listed above, since generating consistent assets felt like it
 would be difficult, for very little additional gain.
+
+# Milestone 3 Entry: Level Saving (11/20)
+
+Added basic save state. Eventually, this could be used for tracking best level
+times, but for now it just tracks whether you've completed the level.
