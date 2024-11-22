@@ -10,7 +10,7 @@
 },
 "default_portrait": "card",
 "description": "",
-"display_name": "tarot-lonely-tower",
+"display_name": "tarot-sun",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
@@ -26,7 +26,16 @@
 },
 "card": {
 "export_overrides": {
-"image": "\"res://assets/cards/16-TheTower.png\""
+"image": "\"res://assets/cards/19-TheSun.png\""
+},
+"mirror": false,
+"offset": Vector2(0, -180),
+"scale": 0.5,
+"scene": ""
+},
+"reversed": {
+"export_overrides": {
+"image": "\"res://assets/cards/19-TheSunReversed.png\""
 },
 "mirror": false,
 "offset": Vector2(0, -180),

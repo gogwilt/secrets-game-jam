@@ -1,8 +1,18 @@
-join tarot-lovers center
-[wait time="1.0" skippable="true"]
-join tarot-lonely-tower right
-[wait time="1.0" skippable="true"]
-join servant (sad) left
+join tarot-lovers (back) left
+if {Card1} == true:
+	update tarot-lovers (card) [fade="Fade Cross"]
+[wait time="0.5" skippable="true"]
+join tarot-fool (back) center
+if {Card2} == true:
+	update tarot-fool (card) [fade="Fade Cross"]
+[wait time="0.5" skippable="true"]
+join tarot-sun (back) right
+if {Card3} == true:
+	update tarot-sun (reversed) [fade="Fade Cross"]
+[wait time="0.5" skippable="true"]
+join servant (sad) leftmost
+join cluedomancer rightmost
+cluedomancer: The Lovers and The Fool... a love that was spurned? And The Sun, reversed. Deep depression and sadness.
 servant: You have found me out. The Maiden and I were in love -- or so I thought.
 servant: She promised me the world; that with one last plot she could take us away from all this.
 servant: It was her who took the locket. Of that I'm sure. But when I asked her about it, she dismissed me. She said she would not speak to me again.

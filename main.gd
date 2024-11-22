@@ -91,6 +91,11 @@ func _on_level_completed(_level_name, time_elapsed, collected_cards) -> void:
 	$LevelCompleteMenu.visible = true
 	currently_playing_level = false
 	
+	# Set up dialogic variables to show cards
+	Dialogic.VAR.Card1 = collected_cards.has(0)
+	Dialogic.VAR.Card2 = collected_cards.has(1)
+	Dialogic.VAR.Card3 = collected_cards.has(2)
+	
 func _get_time_chart(time_elapsed: float, completion_times: Array) -> String:
 	var completion_time_text = ""
 	var current_time_shown = false

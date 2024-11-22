@@ -15,13 +15,23 @@
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"card": {
+"back": {
 "export_overrides": {
-"image": "\"res://assets/cards/tarot-card-death.png\""
+"image": "\"res://assets/cards/tarot-back.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(0, -180),
+"scale": 0.5,
+"scene": ""
+},
+"card": {
+"export_overrides": {
+"image": "\"res://assets/cards/13-Death.png\""
+},
+"ignore_char_scale": false,
+"mirror": false,
+"offset": Vector2(0, -180),
+"scale": 0.5,
 "scene": ""
 }
 },

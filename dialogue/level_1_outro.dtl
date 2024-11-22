@@ -1,9 +1,15 @@
-join tarot-death left
-[wait time="1.0" skippable="true"]
-join tarot-lovers center
-[wait time="1.0" skippable="true"]
-join tarot-lonely-tower right
-[wait time="1.0" skippable="true"]
+join tarot-death (back) left
+if {Card1} == true:
+	update tarot-death (card) [fade="Fade Cross"]
+[wait time="0.5" skippable="true"]
+join tarot-lovers (back) center
+if {Card2} == true:
+	update tarot-lovers (card) [fade="Fade Cross"]
+[wait time="0.5" skippable="true"]
+join tarot-lonely-tower (back) right
+if {Card3} == true:
+	update tarot-lonely-tower (card) [fade="Fade Cross"]
+[wait time="0.5" skippable="true"]
 join duchess rightmost
 join cluedomancer leftmost
 cluedomancer: The popular socialite? The cards suggest a different story. Lovers and death\: the loss of your husband. The lonely tower\: your grief has isolated you.
