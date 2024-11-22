@@ -14,7 +14,7 @@ func _ready() -> void:
 	if level_end_area:
 		# Player is on layer 3, so it doesn't interfere with dimension switch collision detection
 		level_end_area.set_collision_mask_value(3, true)
-		level_end_area.connect("body_entered", _on_level_end_area_body_entered)
+		level_end_area.connect("body_entered", _on_level_end_area_body_entered, ConnectFlags.CONNECT_ONE_SHOT)
 
 func _on_level_end_area_body_entered(body: Node2D) -> void:
 	if body is Player:

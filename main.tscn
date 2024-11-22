@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://wkduvd34do2n"]
+[gd_scene load_steps=6 format=3 uid="uid://wkduvd34do2n"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ajyqa"]
 [ext_resource type="PackedScene" uid="uid://bmg1a87djoblf" path="res://level_select_menu.tscn" id="2_8jul3"]
 [ext_resource type="Script" path="res://grab_focus.gd" id="3_38g8a"]
+[ext_resource type="FontFile" uid="uid://dayfi14dc2hml" path="res://assets/fonts/KiriFont.otf" id="3_u6f60"]
 [ext_resource type="PackedScene" uid="uid://hxty10rku3tl" path="res://cluedomancer_save_state.tscn" id="4_4j1qh"]
 
 [node name="Main" type="Node2D"]
@@ -14,37 +15,56 @@ save_state = NodePath("../CluedomancerSaveState")
 
 [node name="LevelCompleteMenu" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="LevelCompleteMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelCompleteMenu"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -38.0
-offset_top = -49.0
-offset_right = 38.0
-offset_bottom = -26.0
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "YOU WIN!"
 
-[node name="ContinueButton" type="Button" parent="LevelCompleteMenu" node_paths=PackedStringArray("menu_container")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -39.5
-offset_top = -15.5
-offset_right = 39.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Label" type="Label" parent="LevelCompleteMenu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_u6f60")
+theme_override_font_sizes/font_size = 26
+text = "You win!
+
+Top Times"
+horizontal_alignment = 1
+
+[node name="CompletionTimes" type="Label" parent="LevelCompleteMenu/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "1. 00:00.00
+2. 00:00.00
+3. 00:00.00
+4. 00:00.00
+5. 00:00.00
+6. 00:00.00
+7. 00:00.00
+8. 00:00.00
+9. 00:00.00
+10. 00:00.00"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="LevelCompleteMenu/VBoxContainer" node_paths=PackedStringArray("menu_container")]
+layout_mode = 2
 text = "Continue"
 script = ExtResource("3_38g8a")
-menu_container = NodePath("..")
+menu_container = NodePath("../..")
+
+[node name="RetryButton" type="Button" parent="LevelCompleteMenu/VBoxContainer"]
+layout_mode = 2
+text = "Retry"
 
 [node name="PauseMenu" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu"]
 anchors_preset = 8
@@ -77,6 +97,7 @@ text = "Back to Level Select"
 unique_name_in_owner = true
 
 [connection signal="level_selected" from="LevelSelectMenu" to="." method="_on_level_select_menu_level_selected"]
-[connection signal="pressed" from="LevelCompleteMenu/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="LevelCompleteMenu/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="LevelCompleteMenu/VBoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/RestartLevelButton" to="." method="_on_restart_level_button_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/BackToLevelSelectButton" to="." method="_on_back_to_level_select_button_pressed"]
