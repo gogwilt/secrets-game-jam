@@ -79,6 +79,7 @@ enabled=PackedStringArray("res://addons/dialogic/plugin.cfg")
 
 player=""
 save_state=""
+collectible_cards=""
 
 [input]
 

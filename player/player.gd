@@ -42,12 +42,16 @@ func _ready() -> void:
 func _on_active_layer_updated() -> void:
 	if active_layer == Dimension.MAIN:
 		set_collision_mask_value(1, true)
+		set_collision_layer_value(1, true)
 		set_collision_mask_value(2, false)
+		set_collision_layer_value(2, false)
 		%AlternateLevelDetector.set_collision_mask_value(1, false)
 		%AlternateLevelDetector.set_collision_mask_value(2, true)
 	else:
 		set_collision_mask_value(2, true)
+		set_collision_layer_value(2, true)
 		set_collision_mask_value(1, false)
+		set_collision_layer_value(1, false)
 		%AlternateLevelDetector.set_collision_mask_value(2, false)
 		%AlternateLevelDetector.set_collision_mask_value(1, true)
 
@@ -57,7 +61,8 @@ func _physics_process(delta: float) -> void:
 		(not Input.is_action_pressed("swap_layers") and active_layer == Dimension.SUB)
 		):
 		# Try to switch layers
-		if not %AlternateLevelDetector.has_overlapping_bodies():
+		var overlapping_bodies = %AlternateLevelDetector.get_overlapping_bodies()
+		if overlapping_bodies.size() == 0 or (overlapping_bodies.size() == 1 and overlapping_bodies[0] is Player):
 			active_layer = Dimension.SUB if active_layer == Dimension.MAIN else Dimension.MAIN
 			_on_active_layer_updated()
 			layers_switched.emit(active_layer)
@@ -75,6 +80,9 @@ func _track_layer_switch_for_boost(layer: Dimension) -> void:
 		%BoostChargeTimer.stop()
 
 func _on_boost_charge_timer_timeout() -> void:
+	grant_boost_charge()
+	
+func grant_boost_charge() -> void:
 	dimension_boost_charged = true
 	_on_boost_charge_update()
 	boost_charged.emit()

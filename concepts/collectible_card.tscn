@@ -1,0 +1,166 @@
+[gd_scene load_steps=10 format=3 uid="uid://clp77mhxk5mon"]
+
+[ext_resource type="Script" path="res://concepts/collectible_card.gd" id="1_dd8rq"]
+[ext_resource type="Texture2D" uid="uid://bl5npikx2gx7l" path="res://assets/cards/tarot-back.png" id="1_q0t7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xl680"]
+size = Vector2(36, 64)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_0mr4l"]
+resource_local_to_scene = true
+light_mode = 2
+
+[sub_resource type="Animation" id="Animation_khdf2"]
+resource_name = "uncollected"
+length = 1.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TarotBack:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(3.4822, 0.189465, 1),
+"update": 0,
+"values": [Vector2(0.12, 0.12), Vector2(0, 0.12), Vector2(0.12, 0.12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TarotBack:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.766667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.899561, 0.500045, 0.822182, 1), Color(1, 1, 1, 1), Color(0.899561, 0.500045, 0.822182, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rck1o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TarotBack:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.12, 0.12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TarotBack:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TarotBack:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xoqxa"]
+resource_name = "previously_collected"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TarotBack:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(3.03143, 0.329877, 1),
+"update": 0,
+"values": [Vector2(0.12, 0.12), Vector2(0, 0.12), Vector2(0.12, 0.12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TarotBack:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_bso7i"]
+resource_name = "collected"
+length = 0.500003
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TarotBack:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(5.65685, 1),
+"update": 0,
+"values": [Vector2(0.12, 0.12), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TarotBack:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(0.233258, 1.1487, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -30), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41dwu"]
+_data = {
+"RESET": SubResource("Animation_rck1o"),
+"collected": SubResource("Animation_bso7i"),
+"previously_collected": SubResource("Animation_xoqxa"),
+"uncollected": SubResource("Animation_khdf2")
+}
+
+[node name="CollectibleCard" type="Area2D" groups=["collectible_cards"]]
+script = ExtResource("1_dd8rq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xl680")
+
+[node name="TarotBack" type="Sprite2D" parent="."]
+material = SubResource("CanvasItemMaterial_0mr4l")
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("1_q0t7u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_41dwu")
+}
+
+[node name="DebugLight" type="DirectionalLight2D" parent="."]
+editor_only = true
+blend_mode = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
