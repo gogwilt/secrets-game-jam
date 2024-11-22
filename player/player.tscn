@@ -14,9 +14,9 @@ size = Vector2(18, 87.6528)
 
 [sub_resource type="Curve2D" id="Curve2D_6h3o1"]
 _data = {
-"points": PackedVector2Array(-0.297638, -5.85354, 0.297638, 5.85354, -30, -14, 0, 0, 0, 0, -27, -9, 0, 0, 0, 0, -24, -7, -8.82992, 0.198425, 8.82992, -0.198425, -4, -4, 0, 0, 0, 0, 24, -9, 0, 0, 0, 0, 27, -11, 0.0992126, 8.92913, -0.0992126, -8.92913, 29, -17, 0, 0, 0, 0, 27, -23, 0, 0, 0, 0, 25, -26, 0, 0, 0, 0, 0, -28, 6.21295, -4.62812, -6.21295, 4.62812, -23, -23, 0, 0, 0, 0, -28, -21, -0.235969, -6.54813, 0.235969, 6.54813, -30, -14)
+"points": PackedVector2Array(-0.297638, -5.85354, 0.297638, 5.85354, -44.4444, -13.7778, 0, 0, 0, 0, -26.6667, -2.66667, -8.82992, 0.198425, 8.82992, -0.198425, -3.33333, 1.77777, 0, 0, 0, 0, 28.8889, -2.66667, 0.0992126, 8.92913, -0.0992126, -8.92913, 43.3333, -17.1111, 0, 0, 0, 0, 23.3333, -30.4445, 0, 0, 0, 0, -1.11111, -33.7778, 0, 0, 0, 0, -30, -24.8889, -0.235969, -6.54813, 0.235969, 6.54813, -44.4444, -13.7778)
 }
-point_count = 13
+point_count = 9
 
 [sub_resource type="Gradient" id="Gradient_qwdu0"]
 offsets = PackedFloat32Array(0.0233333, 0.48, 1)
@@ -275,6 +275,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 scale = Vector2(0.9, 0.9)
 collision_layer = 4
 script = ExtResource("1_5otab")
@@ -285,55 +286,66 @@ shape = SubResource("RectangleShape2D_6ngxk")
 
 [node name="BoostIndicator2" type="Node2D" parent="."]
 visible = false
-position = Vector2(0, -19)
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -44.4444)
 
 [node name="Path2D" type="Path2D" parent="BoostIndicator2"]
+y_sort_enabled = true
 position = Vector2(0, 16)
 curve = SubResource("Curve2D_6h3o1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
-position = Vector2(-30, -14)
-progress = 143.873
+y_sort_enabled = true
+position = Vector2(-44.4444, -13.7778)
+progress = 198.888
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D"]
+y_sort_enabled = true
 position = Vector2(-4.76837e-07, -1.07288e-06)
 scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
-position = Vector2(29.001, -16.8355)
-progress = 69.7871
+y_sort_enabled = true
+position = Vector2(42.7879, -14.056)
+progress = 96.4728
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D2"]
+y_sort_enabled = true
 position = Vector2(-4.76837e-07, -1.07288e-06)
 scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
-position = Vector2(29.001, -16.8355)
-progress = 69.7871
+y_sort_enabled = true
+position = Vector2(42.7879, -14.056)
+progress = 96.4728
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D3"]
+y_sort_enabled = true
 position = Vector2(-4.76837e-07, -1.07288e-06)
 scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
-position = Vector2(29.001, -16.8355)
-progress = 69.7871
+y_sort_enabled = true
+position = Vector2(42.7879, -14.056)
+progress = 96.4728
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D4"]
+y_sort_enabled = true
 position = Vector2(-4.76837e-07, -1.07288e-06)
 scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_7evac")
 
 [node name="BoostEffect" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -19)
+position = Vector2(0, -44.4444)
 emitting = false
 amount = 20
 lifetime = 0.2
@@ -343,16 +355,13 @@ spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 50.0
 initial_velocity_max = 100.0
-scale_amount_min = 0.4
-scale_amount_max = 0.4
+scale_amount_min = 0.8
+scale_amount_max = 0.8
 color_initial_ramp = SubResource("Gradient_qwdu0")
 
-[node name="White-16x16" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(0, -8)
-texture = ExtResource("1_7evac")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(1.42109e-14, -47)
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_3tl73")

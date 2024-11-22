@@ -79,8 +79,21 @@ func _on_boost_charge_timer_timeout() -> void:
 	_on_boost_charge_update()
 	boost_charged.emit()
 	
+var boost_effect_img: Texture2D
+var boost_effect_img_flip: Texture2D
+	
 func use_boost() -> void:
 	dimension_boost_charged = false
+	# Instantiate boost direction image textures
+	if not boost_effect_img_flip:
+		boost_effect_img = %BoostEffect.texture
+		var img = boost_effect_img.get_image()
+		img.flip_x()
+		boost_effect_img_flip = ImageTexture.create_from_image(img)
+	if current_direction >= 0:
+		%BoostEffect.texture = boost_effect_img
+	else:
+		%BoostEffect.texture = boost_effect_img_flip
 	%BoostEffect.emitting = true
 	_on_boost_charge_update()
 	boost_used.emit()
