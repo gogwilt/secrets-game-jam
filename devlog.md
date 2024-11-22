@@ -292,3 +292,10 @@ would be difficult, for very little additional gain.
 
 Added basic save state. Eventually, this could be used for tracking best level
 times, but for now it just tracks whether you've completed the level.
+
+# Milestone 3 Entry: Collectible Cards
+
+This was *almost* easy to add. But it took me almost an hour to figure out why
+the cards seemed to show correctly in the main world in level 1, and then showed
+incorrectly in the main world on level 2. Turns out, the "material" needed to be
+uniquified, since I was updating them directly.

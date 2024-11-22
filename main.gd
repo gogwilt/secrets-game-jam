@@ -61,7 +61,8 @@ func load_and_reset_level(level_name: String) -> void:
 	add_child(level_player)
 	player = get_tree().get_first_node_in_group("player")
 	player.can_move = true
-	level_player.load_level(level_name)
+	var level_info = %CluedomancerSaveState.get_level_data(current_level_name)
+	level_player.load_level(level_name, level_info)
 	current_level_name = level_name
 	unpause()
 	$LevelCompleteMenu.visible = false
@@ -80,10 +81,10 @@ func go_to_main_menu() -> void:
 	$LevelSelectMenu.visible = true
 	currently_playing_level = false
 
-func _on_level_completed(_level_name, time_elapsed) -> void:
+func _on_level_completed(_level_name, time_elapsed, collected_cards) -> void:
 	player.can_move = false
 	pause(false)
-	%CluedomancerSaveState.on_level_complete(current_level_name, time_elapsed)
+	%CluedomancerSaveState.on_level_complete(current_level_name, time_elapsed, collected_cards)
 	%CluedomancerSaveState.save_game()
 	var level_info = %CluedomancerSaveState.get_level_data(current_level_name)
 	%CompletionTimes.text = _get_time_chart(time_elapsed, level_info.completion_times)

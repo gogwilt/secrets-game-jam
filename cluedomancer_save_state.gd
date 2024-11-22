@@ -2,7 +2,7 @@ class_name CluedomancerSaveState extends Node
 
 const SAVE_LOCATION = "user://cluedomancer_save.json"
 
-const VERSION = "0.2"
+const VERSION = "0.3"
 var level_info: Array
 
 signal save_data_updated
@@ -37,7 +37,7 @@ func on_new_game() -> void:
 	save_game()
 	save_data_updated.emit()
 	
-func on_level_complete(level_name: String, time_elapsed: float) -> void:
+func on_level_complete(level_name: String, time_elapsed: float, collected_cards: Array) -> void:
 	var level_data: Dictionary
 	for d: Dictionary in level_info:
 		if d.name == level_name:
@@ -48,12 +48,14 @@ func on_level_complete(level_name: String, time_elapsed: float) -> void:
 			"name": level_name,
 			"complete": true,
 			"completion_times": [],
+			"collected_cards": [],
 		}
 		level_info.append(level_data)
 
 	# Modify level_data to include top awards, speed run time, etc
 	level_data.completion_times.append(time_elapsed)
 	level_data.completion_times.sort()
+	level_data.collected_cards = collected_cards
 	
 	save_data_updated.emit()
 	
@@ -64,6 +66,8 @@ func get_level_data(level_name: String) -> Dictionary:
 	return {
 		"name": level_name,
 		"complete": false,
+		"completion_times": [],
+		"collected_cards": [],
 	}
 
 func _state_to_json() -> String:
