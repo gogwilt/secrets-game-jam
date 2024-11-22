@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b8m6yl4vxq41k"]
+[gd_scene load_steps=33 format=3 uid="uid://b8m6yl4vxq41k"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_5otab"]
 [ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="1_7evac"]
@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cddfljqinlj3g" path="res://player/states/boost_state.tscn" id="6_edjx4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ngxk"]
-size = Vector2(18, 36.875)
+size = Vector2(18, 87.6528)
 
 [sub_resource type="Curve2D" id="Curve2D_6h3o1"]
 _data = {
@@ -162,6 +162,9 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ay3b4"]
+size = Vector2(18, 86.6667)
+
 [sub_resource type="Animation" id="Animation_b06x4"]
 length = 0.001
 tracks/0/type = "value"
@@ -272,11 +275,12 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+scale = Vector2(0.9, 0.9)
 collision_layer = 4
 script = ExtResource("1_5otab")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -18.5625)
+position = Vector2(0, -43.9514)
 shape = SubResource("RectangleShape2D_6ngxk")
 
 [node name="BoostIndicator2" type="Node2D" parent="."]
@@ -288,8 +292,8 @@ position = Vector2(0, 16)
 curve = SubResource("Curve2D_6h3o1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
-position = Vector2(-12.6844, -4.62717)
-progress = 21.5793
+position = Vector2(-30, -14)
+progress = 143.873
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D"]
@@ -298,8 +302,8 @@ scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
-position = Vector2(22.848, -8.62756)
-progress = 57.5476
+position = Vector2(29.001, -16.8355)
+progress = 69.7871
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D2"]
@@ -308,8 +312,8 @@ scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
-position = Vector2(14.4522, -26.8438)
-progress = 91.6889
+position = Vector2(29.001, -16.8355)
+progress = 69.7871
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D3"]
@@ -318,8 +322,8 @@ scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
-position = Vector2(-22.5704, -23.2654)
-progress = 129.484
+position = Vector2(29.001, -16.8355)
+progress = 69.7871
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D4"]
@@ -349,10 +353,12 @@ position = Vector2(0, -8)
 texture = ExtResource("1_7evac")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(1.42109e-14, -18)
-scale = Vector2(0.4, 0.4)
+position = Vector2(1.42109e-14, -47)
+scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_3tl73")
 animation = &"run"
+frame = 6
+frame_progress = 0.919679
 
 [node name="StateMachine" parent="." instance=ExtResource("3_v4sdo")]
 
@@ -375,8 +381,8 @@ ground_state = NodePath("../GroundState")
 unique_name_in_owner = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AlternateLevelDetector"]
-position = Vector2(0, -19)
-shape = SubResource("RectangleShape2D_6ngxk")
+position = Vector2(0, -44.4444)
+shape = SubResource("RectangleShape2D_ay3b4")
 
 [node name="BoostChargeTimer" type="Timer" parent="."]
 unique_name_in_owner = true
