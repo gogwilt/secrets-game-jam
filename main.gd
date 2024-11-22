@@ -6,6 +6,7 @@ var level_player: LevelPlayer
 var is_paused: bool = false
 var current_level_name: String
 var player: Player
+var currently_playing_level: bool = false
 
 func _ready() -> void:
 	%CluedomancerSaveState.load_game()
@@ -13,7 +14,7 @@ func _ready() -> void:
 	$PauseMenu.visible = false
 
 func _process(_delta: float) -> void:
-	if not $LevelSelectMenu.visible and Input.is_action_just_pressed("pause"):
+	if not $LevelSelectMenu.visible and currently_playing_level and Input.is_action_just_pressed("pause"):
 		if is_paused:
 			unpause()
 		else:
@@ -65,6 +66,7 @@ func load_and_reset_level(level_name: String) -> void:
 	unpause()
 	$LevelCompleteMenu.visible = false
 	$LevelSelectMenu.visible = false
+	currently_playing_level = true
 
 	# Connect once at the end, so that _on_level_completed doesn't accidentally fire	
 	level_player.connect("level_completed", _on_level_completed, ConnectFlags.CONNECT_ONE_SHOT)
@@ -76,6 +78,7 @@ func go_to_main_menu() -> void:
 	$LevelCompleteMenu.visible = false
 	$PauseMenu.visible = false
 	$LevelSelectMenu.visible = true
+	currently_playing_level = false
 
 func _on_level_completed(_level_name, time_elapsed) -> void:
 	player.can_move = false
@@ -85,6 +88,7 @@ func _on_level_completed(_level_name, time_elapsed) -> void:
 	var level_info = %CluedomancerSaveState.get_level_data(current_level_name)
 	%CompletionTimes.text = _get_time_chart(time_elapsed, level_info.completion_times)
 	$LevelCompleteMenu.visible = true
+	currently_playing_level = false
 	
 func _get_time_chart(time_elapsed: float, completion_times: Array) -> String:
 	var completion_time_text = ""

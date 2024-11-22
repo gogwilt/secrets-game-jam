@@ -205,7 +205,8 @@ portrait_image = ExtResource("6_wmjx0")
 character_name = "Movement"
 dialog = "Find a way to get to the end of the level.
 WASD - Move around.
-K - Jump."
+K - Jump.
+P - Pause."
 
 [node name="TutorialController" type="CanvasLayer" parent="."]
 visible = false

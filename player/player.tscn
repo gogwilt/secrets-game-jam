@@ -297,8 +297,8 @@ curve = SubResource("Curve2D_6h3o1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
 y_sort_enabled = true
-position = Vector2(-44.4444, -13.7778)
-progress = 198.888
+position = Vector2(9.15931, -32.3773)
+progress = 139.222
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D"]
@@ -309,8 +309,8 @@ texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D2" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
 y_sort_enabled = true
-position = Vector2(42.7879, -14.056)
-progress = 96.4728
+position = Vector2(-38.3112, -21.2262)
+progress = 188.944
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D2"]
@@ -321,8 +321,8 @@ texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
 y_sort_enabled = true
-position = Vector2(42.7879, -14.056)
-progress = 96.4728
+position = Vector2(-9.93142, 1.28236)
+progress = 38.8862
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D3"]
@@ -333,8 +333,8 @@ texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
 y_sort_enabled = true
-position = Vector2(42.7879, -14.056)
-progress = 96.4728
+position = Vector2(38.6723, -8.49536)
+progress = 89.4996
 rotates = false
 
 [node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D4"]
