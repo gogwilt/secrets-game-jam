@@ -49,8 +49,7 @@ func _on_level_2_pressed() -> void:
 
 
 func _on_level_3_pressed() -> void:
-	#level_selected.emit("level_3")
-	pass
+	level_selected.emit("level_3")
 
 
 func _on_level_4_pressed() -> void:

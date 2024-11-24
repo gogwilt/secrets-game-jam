@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c1np6ywht4f5v"]
 
 [ext_resource type="Script" path="res://concepts/level_player.gd" id="1_g5obh"]
-[ext_resource type="PackedScene" uid="uid://be058k2eqlwu2" path="res://concepts/levels/level_2.tscn" id="2_ug071"]
+[ext_resource type="PackedScene" uid="uid://brogwohxlf43w" path="res://concepts/levels/level_3.tscn" id="2_ckqg6"]
 [ext_resource type="PackedScene" uid="uid://b8m6yl4vxq41k" path="res://player/player.tscn" id="3_tcu1j"]
 
 [sub_resource type="Animation" id="Animation_hsskv"]
@@ -77,7 +77,7 @@ script = ExtResource("1_g5obh")
 [node name="LevelContainer" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Level2" parent="LevelContainer" instance=ExtResource("2_ug071")]
+[node name="Level3" parent="LevelContainer" instance=ExtResource("2_ckqg6")]
 
 [node name="PortalAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -88,7 +88,7 @@ libraries = {
 position = Vector2(1344, -8)
 metadata/_edit_group_ = true
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="Player" groups=["player_camera"]]
 position = Vector2(279, 0)
 position_smoothing_enabled = true
 
