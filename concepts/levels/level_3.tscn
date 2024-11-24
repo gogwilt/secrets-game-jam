@@ -93,6 +93,7 @@ camera_limit_bottom = 0
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -2
+scale = Vector2(2, 2)
 scroll_scale = Vector2(0.4, 0.1)
 repeat_size = Vector2(654, 654)
 repeat_times = 5
