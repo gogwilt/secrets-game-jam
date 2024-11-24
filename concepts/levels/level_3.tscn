@@ -167,10 +167,12 @@ autoplay = "pulse_sub_layer"
 position = Vector2(44, -416)
 
 [node name="LevelEndArea" type="Area2D" parent="."]
-position = Vector2(4893, -42)
+position = Vector2(8467, -566)
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEndArea"]
-position = Vector2(3668.5, -574.5)
+position = Vector2(101, -49)
 shape = SubResource("RectangleShape2D_6064w")
 
 [node name="LevelValidArea" type="Area2D" parent="."]
