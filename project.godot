@@ -26,19 +26,25 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={
 "cluedomancer": "res://dialogue/cluedomancer.dch",
 "duchess": "res://dialogue/duchess.dch",
+"maiden": "res://dialogue/maiden.dch",
 "servant": "res://dialogue/servant.dch",
+"tarot-ace-of-cups": "res://dialogue/tarot-ace-of-cups.dch",
 "tarot-death": "res://dialogue/tarot-death.dch",
+"tarot-devil": "res://dialogue/tarot-devil.dch",
 "tarot-fool": "res://dialogue/tarot-fool.dch",
 "tarot-lonely-tower": "res://dialogue/tarot-lonely-tower.dch",
 "tarot-lovers": "res://dialogue/tarot-lovers.dch",
-"tarot-sun": "res://dialogue/tarot-sun.dch"
+"tarot-sun": "res://dialogue/tarot-sun.dch",
+"tarot-wheel-of-fortune": "res://dialogue/tarot-wheel-of-fortune.dch"
 }
 directories/dtl_directory={
 "intro": "res://dialogue/intro.dtl",
 "level_1_intro": "res://dialogue/level_1_intro.dtl",
 "level_1_outro": "res://dialogue/level_1_outro.dtl",
 "level_2_intro": "res://dialogue/level_2_intro.dtl",
-"level_2_outro": "res://dialogue/level_2_outro.dtl"
+"level_2_outro": "res://dialogue/level_2_outro.dtl",
+"level_3_intro": "res://dialogue/level_3_intro.dtl",
+"level_3_outro": "res://dialogue/level_3_outro.dtl"
 }
 layout/style_list=[]
 layout/default_style="Default"

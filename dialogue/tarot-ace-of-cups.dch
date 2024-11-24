@@ -8,29 +8,29 @@
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "neutral",
+"default_portrait": "card",
 "description": "",
-"display_name": "The Servant",
+"display_name": "tarot-ace-of-cups",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"neutral": {
+"back": {
 "export_overrides": {
-"image": "\"res://assets/characters/servant_neutral.png\""
+"image": "\"res://assets/cards/tarot-back.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1.0,
+"offset": Vector2(0, -180),
+"scale": 0.5,
 "scene": ""
 },
-"sad": {
+"card": {
 "export_overrides": {
-"image": "\"res://assets/characters/servant_sad.png\""
+"image": "\"res://assets/cards/Cups01.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(0, -180),
+"scale": 0.5,
 "scene": ""
 }
 },
