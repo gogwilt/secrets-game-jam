@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 		if minutes < 10:
 			minutes_str = "0" + str(minutes)
 		var seconds = time_elapsed - minutes * 60
-		var seconds_str = str(time_elapsed).pad_decimals(2)
+		var seconds_str = str(seconds).pad_decimals(2)
 		if seconds < 10:
 			seconds_str = "0" + seconds_str
 		%TimeDisplay.text = minutes_str + ":" + seconds_str

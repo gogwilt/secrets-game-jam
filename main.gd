@@ -104,7 +104,7 @@ func _format_time_elapsed(time_elapsed: float) -> String:
 	if minutes < 10:
 		minutes_str = "0" + str(minutes)
 	var seconds = time_elapsed - minutes * 60
-	var seconds_str = str(time_elapsed).pad_decimals(2)
+	var seconds_str = str(seconds).pad_decimals(2)
 	if seconds < 10:
 		seconds_str = "0" + seconds_str
 	return minutes_str + ":" + seconds_str
