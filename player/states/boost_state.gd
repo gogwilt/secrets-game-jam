@@ -5,18 +5,17 @@ class_name BoostState extends State
 @export var ground_state: State
 
 var count_boosts_in_air := 0
-var boost_charged := false
 
 func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
-	if data.boost_charged:
-		boost_charged = true
 	
 	var speed = Player.BOOST_SPEED_UNCHARGED
 	var time = Player.BOOST_TIME_UNCHARGED
-	if boost_charged:
+	if data.boost_charged:
 		player.use_boost()
 		speed = Player.BOOST_SPEED_CHARGED
 		time = Player.BOOST_TIME_CHARGED
+	else:
+		count_boosts_in_air += 1
 	
 	$Timer.start(time)
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -32,8 +31,6 @@ func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
 		player.animate_boost_down()
 	else:
 		player.animate_boost()
-		
-	count_boosts_in_air += 1
 	
 func exit() -> void:
 	$Timer.stop()
@@ -84,4 +81,3 @@ func can_boost() -> bool:
 	
 func reset() -> void:
 	count_boosts_in_air = 0
-	boost_charged = false

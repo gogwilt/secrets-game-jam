@@ -32,8 +32,8 @@ const AIR_TOP_SPEED = 300.0
 
 const BOOST_SPEED_CHARGED = 750.0
 const BOOST_SPEED_UNCHARGED = 500.0
-const BOOST_TIME_CHARGED = 1.0
-const BOOST_TIME_UNCHARGED = 0.2
+const BOOST_TIME_CHARGED = 0.3
+const BOOST_TIME_UNCHARGED = 0.15
 
 func _ready() -> void:
 	_on_active_layer_updated()
