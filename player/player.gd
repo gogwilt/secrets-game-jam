@@ -14,7 +14,7 @@ var current_direction: int = 1
 # Whether player inputs move the character (false when a level is completed)
 var can_move: bool = true
 
-const GRAVITY = 1200.0
+const GRAVITY = 1500.0
 
 const JUMP_VELOCITY = -400.0
 
@@ -24,11 +24,11 @@ const GROUND_DECELERATION = 2500.0
 
 const AIR_INITIAL_SPEED = 100.0
 const AIR_MOVE_ACCELERATION = 100.0
-const AIR_DECELERATION = 250.0
+const AIR_DECELERATION = 100.0
 
 # Top speeds CAN be broken, if you start with this velocity.
 const GROUND_TOP_SPEED = 500.0
-const AIR_TOP_SPEED = 250.0
+const AIR_TOP_SPEED = 300.0
 
 const BOOST_SPEED_CHARGED = 750.0
 const BOOST_SPEED_UNCHARGED = 500.0
