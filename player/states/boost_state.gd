@@ -77,7 +77,7 @@ func _on_timer_timeout() -> void:
 		finished.emit(falling_state.name)
 	
 func can_boost() -> bool:
-	return count_boosts_in_air < 2
+	return player.dimension_boost_charged or count_boosts_in_air < 2
 	
 func reset() -> void:
 	count_boosts_in_air = 0
