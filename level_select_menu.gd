@@ -53,8 +53,7 @@ func _on_level_3_pressed() -> void:
 
 
 func _on_level_4_pressed() -> void:
-	#level_selected.emit("level_4")
-	pass
+	level_selected.emit("level_4")
 
 
 func _on_visibility_changed() -> void:
