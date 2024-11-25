@@ -14,7 +14,7 @@ func _ready() -> void:
 	
 func _update_level_data() -> void:
 	next_level_button = $Level1
-	var next_level_idx: int
+	var next_level_idx: int = NUM_LEVELS
 	for i in range(1, NUM_LEVELS + 1):
 		var level_data = save_state.get_level_data("level_" + str(i))
 		var level = find_child("Level" + str(i), false)
