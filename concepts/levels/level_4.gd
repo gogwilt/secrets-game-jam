@@ -15,6 +15,7 @@ func _on_level_collapser_body_entered(body: Node2D) -> void:
 	%AngryVoiceDialogue/Timer.start()
 	%AngryVoiceDialogue/DisablePlayerControlsTimer.start()
 	$LevelCollapsePlayer.play("collapse_1")
+	shake_camera(1.5)
 
 
 func _on_timer_timeout() -> void:
@@ -30,3 +31,4 @@ func _on_level_collapser_2_body_entered(body: Node2D) -> void:
 		return
 		
 	$LevelCollapsePlayer.play("collapse_2")
+	shake_camera(0.5)

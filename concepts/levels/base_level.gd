@@ -8,9 +8,11 @@ signal level_completed
 @export var collected_cards: Array = []
 @export var camera_limit_bottom: int = 10000000
 
+const SHAKE_MAGNITUDE = 5.0
+
 var player: Player
 var collected_this_run: Array = []
-
+var camera: Camera2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +29,7 @@ func _ready() -> void:
 		level_valid_area.set_collision_mask_value(3, true)
 		level_valid_area.connect("body_exited", _on_level_valid_area_body_exited)
 		
-	var camera: Camera2D = get_tree().get_first_node_in_group("player_camera")
+	camera = get_tree().get_first_node_in_group("player_camera")
 	camera.limit_bottom = camera_limit_bottom
 		
 	collected_this_run = []
@@ -66,6 +68,16 @@ func _on_card_collected(card: CollectibleCard, index: int) -> void:
 			collected_cards.sort()
 		_update_collected_cards()
 
+var shake_timer: SceneTreeTimer
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if shake_timer:
+		camera.offset = Vector2(randf_range(-SHAKE_MAGNITUDE, SHAKE_MAGNITUDE), randf_range(-SHAKE_MAGNITUDE, SHAKE_MAGNITUDE))
+	else:
+		camera.offset = Vector2.ZERO
+
+func shake_camera(duration: float) -> void:
+	shake_timer = get_tree().create_timer(duration)
+	await shake_timer.timeout
+	shake_timer = null
