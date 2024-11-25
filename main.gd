@@ -36,6 +36,7 @@ const LEVELS_WITH_SCENES = ['level_1', 'level_2', 'level_3', 'level_4']
 func _on_level_select_menu_level_selected(level_name: String) -> void:
 	if LEVELS_WITH_SCENES.has(level_name):
 		$LevelSelectMenu.visible = false
+		%DialogueBackground.visible = true
 		Dialogic.timeline_ended.connect(load_and_reset_level.bind(level_name), CONNECT_ONE_SHOT)
 		Dialogic.start(level_name + "_intro")
 		get_viewport().set_input_as_handled()
@@ -56,6 +57,7 @@ func load_and_reset_level(level_name: String) -> void:
 	unpause()
 	$LevelCompleteMenu.visible = false
 	$LevelSelectMenu.visible = false
+	%DialogueBackground.visible = false
 	currently_playing_level = true
 
 	# Connect once at the end, so that _on_level_completed doesn't accidentally fire	

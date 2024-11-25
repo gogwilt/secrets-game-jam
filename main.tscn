@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://wkduvd34do2n"]
+[gd_scene load_steps=7 format=3 uid="uid://wkduvd34do2n"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ajyqa"]
 [ext_resource type="PackedScene" uid="uid://bmg1a87djoblf" path="res://level_select_menu.tscn" id="2_8jul3"]
 [ext_resource type="Script" path="res://grab_focus.gd" id="3_38g8a"]
 [ext_resource type="FontFile" uid="uid://dayfi14dc2hml" path="res://assets/fonts/KiriFont.otf" id="3_u6f60"]
 [ext_resource type="PackedScene" uid="uid://hxty10rku3tl" path="res://cluedomancer_save_state.tscn" id="4_4j1qh"]
+[ext_resource type="Texture2D" uid="uid://coc5pxerk35x2" path="res://assets/background-duchess-house.png" id="6_rdc7s"]
 
 [node name="Main" type="Node2D"]
 process_mode = 3
@@ -95,6 +96,11 @@ text = "Back to Level Select"
 
 [node name="CluedomancerSaveState" parent="." instance=ExtResource("4_4j1qh")]
 unique_name_in_owner = true
+
+[node name="DialogueBackground" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(543, 352)
+texture = ExtResource("6_rdc7s")
 
 [connection signal="level_selected" from="LevelSelectMenu" to="." method="_on_level_select_menu_level_selected"]
 [connection signal="pressed" from="LevelCompleteMenu/VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
