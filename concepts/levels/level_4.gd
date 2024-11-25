@@ -4,6 +4,11 @@ extends BaseLevel
 func _ready() -> void:
 	super()
 	$LevelCollapsePlayer.play("RESET")
+	
+func reset_level(reset_location: Marker2D) -> void:
+	super(reset_location)
+	$LevelCollapsePlayer.play("RESET")
+	%AngryVoiceDialogue.visible = false
 
 func _on_level_collapser_body_entered(body: Node2D) -> void:
 	if not body is Player:

@@ -157,12 +157,13 @@ _data = {
 "collapse_2": SubResource("Animation_coqpy")
 }
 
-[node name="Level4" type="Node2D" node_paths=PackedStringArray("player_start_position", "level_end_area", "level_valid_area")]
+[node name="Level4" type="Node2D" node_paths=PackedStringArray("player_start_position", "level_end_area", "level_valid_area", "checkpoint_locations")]
 script = ExtResource("1_owqst")
 player_start_position = NodePath("PlayerStart")
 level_end_area = NodePath("LevelEndArea")
 level_valid_area = NodePath("LevelValidArea")
 camera_limit_bottom = 0
+checkpoint_locations = NodePath("CheckpointLocations")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -2
@@ -324,7 +325,7 @@ character_name = "Angry Voice"
 dialog = "No! You shall not claim the final secret."
 
 [node name="Timer" type="Timer" parent="CanvasLayer/AngryVoiceDialogue"]
-wait_time = 20.0
+wait_time = 5.0
 one_shot = true
 
 [node name="DisablePlayerControlsTimer" type="Timer" parent="CanvasLayer/AngryVoiceDialogue"]

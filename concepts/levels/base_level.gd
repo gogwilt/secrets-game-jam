@@ -8,6 +8,9 @@ signal level_completed
 @export var collected_cards: Array = []
 @export var camera_limit_bottom: int = 10000000
 
+# Node2D containing Marker2Ds
+@export var checkpoint_locations: Node2D
+
 const SHAKE_MAGNITUDE = 5.0
 
 var player: Player
@@ -19,8 +22,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("player")
 	assert(player)
 	if player_start_position:
-		player.position = player_start_position.position
-		player.velocity = Vector2.ZERO
+		reset_level(player_start_position)
 	if level_end_area:
 		# Player is on layer 3, so it doesn't interfere with dimension switch collision detection
 		level_end_area.set_collision_mask_value(3, true)
@@ -56,8 +58,16 @@ func _on_level_end_area_body_entered(body: Node2D) -> void:
 		
 func _on_level_valid_area_body_exited(body: Node2D) -> void:
 	if body is Player and player_start_position:
-		player.position = player_start_position.position
-		player.velocity = Vector2.ZERO
+		var start_position: Marker2D = player_start_position
+		# Find checkpoint location if one exists
+		if checkpoint_locations:
+			for marker in checkpoint_locations.get_children():
+				if marker is Marker2D:
+					var m = marker as Marker2D
+					if m.global_position.x > start_position.global_position.x and m.global_position.x < player.global_position.x:
+						start_position = m
+			
+		reset_level(start_position)
 
 func _on_card_collected(card: CollectibleCard, index: int) -> void:
 	player.grant_boost_charge()
@@ -81,3 +91,10 @@ func shake_camera(duration: float) -> void:
 	shake_timer = get_tree().create_timer(duration)
 	await shake_timer.timeout
 	shake_timer = null
+
+# Resets the level when a player dies
+func reset_level(reset_location: Marker2D) -> void:
+	player.position = reset_location.global_position
+	player.velocity = Vector2.ZERO
+	collected_this_run = []
+	_update_collected_cards()
