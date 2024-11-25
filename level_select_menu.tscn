@@ -309,17 +309,6 @@ theme_override_font_sizes/font_size = 13
 text = "The Gentleman."
 horizontal_alignment = 1
 
-[node name="ComingSoon" type="Label" parent="Level4"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 113.0
-offset_right = 136.0
-offset_bottom = 130.0
-theme_override_colors/font_color = Color(0.83, 0.3403, 0.511695, 1)
-theme_override_fonts/font = ExtResource("5_0e6i6")
-theme_override_font_sizes/font_size = 14
-text = "COMING SOON"
-
 [node name="CardBack" type="Sprite2D" parent="Level4"]
 position = Vector2(71, 122)
 scale = Vector2(0.466666, 0.466666)

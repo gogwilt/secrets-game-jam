@@ -1,0 +1,24 @@
+join tarot-seven-of-swords (back) left
+if {Card1} == true:
+	update tarot-seven-of-swords (card) [fade="Fade Cross"]
+[wait time="0.5"]
+join tarot-wheel-of-fortune (back) center
+if {Card2} == true:
+	update tarot-wheel-of-fortune (card) [fade="Fade Cross"]
+[wait time="0.5"]
+join tarot-fool (back) right
+if {Card3} == true:
+	update tarot-fool (card) [fade="Fade Cross"]
+[wait time="0.5"]
+join gentleman (angry) leftmost
+join cluedomancer rightmost
+cluedomancer: Seven of Swords... deception. Wheel of Fortune, you planned a deceitful exchange? And the Fool. One final trick, but this time on you.
+gentleman: I admit it... I planned to swindle the Enigma Locket from her. But as you can see, I was the one who was played for a fool.
+gentleman: I'd heard the Duchess was nearly bankrupt. She invited me here to discuss a price on the locket. But then the Maiden accosted me. And now, the Duchess casts suspicion on me!
+cluedomancer: There is more at play, though. Your mind... it had been altered. What does it mean?
+join duchess (angry) center [z_index="1"]
+[wait time="0.5" hide_text="false" skippable="true"]
+duchess: Charlatan! You call yourself the Cluedomancer, as though you alone command so great a power.
+duchess: You are not the only one who has studied cluedomancy.\
+\
+Come, test your skill, if you dare.

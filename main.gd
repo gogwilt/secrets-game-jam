@@ -31,7 +31,7 @@ func unpause() -> void:
 	get_tree().paused = false
 	$PauseMenu.visible = false
 	
-const LEVELS_WITH_SCENES = ['level_1', 'level_2', 'level_3']
+const LEVELS_WITH_SCENES = ['level_1', 'level_2', 'level_3', 'level_4']
 
 func _on_level_select_menu_level_selected(level_name: String) -> void:
 	if LEVELS_WITH_SCENES.has(level_name):

@@ -8,38 +8,29 @@
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "neutral",
+"default_portrait": "card",
 "description": "",
-"display_name": "The Duchess",
+"display_name": "tarot-seven-of-swords",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
-"angry": {
+"back": {
 "export_overrides": {
-"image": "\"res://assets/characters/duchess-angry.png\""
+"image": "\"res://assets/cards/tarot-back.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(0, -180),
+"scale": 0.5,
 "scene": ""
 },
-"neutral": {
+"card": {
 "export_overrides": {
-"image": "\"res://assets/characters/duchess_neutral.png\""
+"image": "\"res://assets/cards/Swords07.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1.0,
-"scene": ""
-},
-"sad": {
-"export_overrides": {
-"image": "\"res://assets/characters/duchess_sad.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(0, -180),
+"scale": 0.5,
 "scene": ""
 }
 },

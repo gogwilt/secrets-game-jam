@@ -8,38 +8,29 @@
 "sound_moods": {},
 "style": ""
 },
-"default_portrait": "neutral",
+"default_portrait": "angry",
 "description": "",
-"display_name": "The Duchess",
+"display_name": "The Gentleman",
 "mirror": false,
 "nicknames": [""],
 "offset": Vector2(0, 0),
 "portraits": {
 "angry": {
 "export_overrides": {
-"image": "\"res://assets/characters/duchess-angry.png\""
+"image": "\"res://assets/characters/gentleman-angry.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(0, 120),
+"scale": 1.2,
 "scene": ""
 },
-"neutral": {
+"smiling": {
 "export_overrides": {
-"image": "\"res://assets/characters/duchess_neutral.png\""
+"image": "\"res://assets/characters/gentleman-smiling.png\""
 },
 "mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1.0,
-"scene": ""
-},
-"sad": {
-"export_overrides": {
-"image": "\"res://assets/characters/duchess_sad.png\""
-},
-"mirror": false,
-"offset": Vector2(0, 0),
-"scale": 1,
+"offset": Vector2(0, 120),
+"scale": 1.2,
 "scene": ""
 }
 },

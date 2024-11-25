@@ -2,7 +2,7 @@ class_name CluedomancerSaveState extends Node
 
 const SAVE_LOCATION = "user://cluedomancer_save.json"
 
-const VERSION = "0.3"
+const VERSION = "0.4"
 var level_info: Array
 
 signal save_data_updated
