@@ -27,22 +27,23 @@ func physics_update(delta: float) -> void:
 		(player.velocity.x > 0 and direction < 0) or
 		(player.velocity.x < 0 and direction > 0)
 	)
-	if direction and (abs(player.velocity.x) < Player.AIR_INITIAL_SPEED):
+	
+	if direction == 0:
+		# Decelerate
+		player.velocity.x = move_toward(player.velocity.x, 0, Player.AIR_DECELERATION * delta)
+	elif is_switching_direction:
+		# Quickly decelerate
+		player.velocity.x = move_toward(player.velocity.x, 0, 2 * Player.AIR_DECELERATION * delta)
+	elif (abs(player.velocity.x) < Player.AIR_INITIAL_SPEED):
 		# Starting to move from near motionless
 		player.velocity.x = direction * Player.AIR_INITIAL_SPEED
-	elif direction and not is_switching_direction:
+	else:
 		# Accelerating in same direction
 		if abs(player.velocity.x) > Player.AIR_TOP_SPEED:
 			# Keep velocity the same if player is higher than top speed
 			pass
 		else:
 			player.velocity.x = move_toward(player.velocity.x, unit_direction * Player.AIR_TOP_SPEED, Player.AIR_MOVE_ACCELERATION * delta)
-	elif direction and is_switching_direction:
-		# Player wants to shift in other direction
-		player.velocity.x = move_toward(player.velocity.x, unit_direction * Player.AIR_TOP_SPEED, Player.AIR_DECELERATION * delta)
-	else:
-		# No input, so quickly decelerate
-		player.velocity.x = move_toward(player.velocity.x, 0, Player.AIR_DECELERATION * delta)
 
 	if player.velocity.y < 0:
 		player.animate_jump_up()
