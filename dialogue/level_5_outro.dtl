@@ -1,0 +1,24 @@
+join cluedomancer (surprised) right
+join duchess (angry) left
+cluedomancer: Whew! What twisted mind maze was that?
+duchess: So, you survived.
+cluedomancer (full_shot): More than that, I obtained your secrets!
+update cluedomancer rightmost
+update duchess leftmost
+join tarot-magician (card) left
+join tarot-judgement (card) center
+join tarot-chariot (card) right
+cluedomancer: The Magician; Judgement; the Chariot. YOU stole your own Enigma Locket, deceived your guests, and deceived me. All to lure me here as part of a test.
+cluedomancer: I see through your deception, and I declare this case solved!
+duchess: Congratulations, dear "Cluedomancer." You figured it out.\
+\
+I faked the theft to lure you here. For someone as brazen as you, I felt compelled to test your abilities.
+leave tarot-magician [animation="Slide Out Down"]
+leave tarot-judgement [animation="Slide Out Down"]
+leave tarot-chariot [animation="Slide Out Down"]
+update duchess left
+update cluedomancer right
+duchess: You have my approval.\
+\
+I find you... adequate.
+duchess: Perhaps you should continue honing your skills with my guests. Your cluedomancy is adequate, but slow and inelegant.

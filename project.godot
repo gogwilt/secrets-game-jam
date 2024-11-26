@@ -30,11 +30,14 @@ directories/dch_directory={
 "maiden": "res://dialogue/maiden.dch",
 "servant": "res://dialogue/servant.dch",
 "tarot-ace-of-cups": "res://dialogue/tarot-ace-of-cups.dch",
+"tarot-chariot": "res://dialogue/tarot-chariot.dch",
 "tarot-death": "res://dialogue/tarot-death.dch",
 "tarot-devil": "res://dialogue/tarot-devil.dch",
 "tarot-fool": "res://dialogue/tarot-fool.dch",
+"tarot-judgement": "res://dialogue/tarot-judgement.dch",
 "tarot-lonely-tower": "res://dialogue/tarot-lonely-tower.dch",
 "tarot-lovers": "res://dialogue/tarot-lovers.dch",
+"tarot-magician": "res://dialogue/tarot-magician.dch",
 "tarot-seven-of-swords": "res://dialogue/tarot-seven-of-swords.dch",
 "tarot-sun": "res://dialogue/tarot-sun.dch",
 "tarot-wheel-of-fortune": "res://dialogue/tarot-wheel-of-fortune.dch"
@@ -48,7 +51,9 @@ directories/dtl_directory={
 "level_3_intro": "res://dialogue/level_3_intro.dtl",
 "level_3_outro": "res://dialogue/level_3_outro.dtl",
 "level_4_intro": "res://dialogue/level_4_intro.dtl",
-"level_4_outro": "res://dialogue/level_4_outro.dtl"
+"level_4_outro": "res://dialogue/level_4_outro.dtl",
+"level_5_intro": "res://dialogue/level_5_intro.dtl",
+"level_5_outro": "res://dialogue/level_5_outro.dtl"
 }
 layout/style_list=[]
 layout/default_style="Default"
