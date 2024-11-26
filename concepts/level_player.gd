@@ -10,7 +10,7 @@ var level: BaseLevel
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	%PortalLight.texture_scale = 0
-	load_level("level_4") # Just for testing
+	load_level("level_5") # Just for testing
 	
 func load_level(level_name: String, level_info: Dictionary = {}) -> void:
 	current_level_name = level_name
