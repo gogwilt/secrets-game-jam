@@ -84,12 +84,13 @@ size = Vector2(357, 387)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_duvbw"]
 size = Vector2(11099, 2331)
 
-[node name="Level3" type="Node2D" node_paths=PackedStringArray("player_start_position", "level_end_area", "level_valid_area")]
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("player_start_position", "level_end_area", "level_valid_area", "checkpoint_locations")]
 script = ExtResource("1_n74po")
 player_start_position = NodePath("PlayerStart")
 level_end_area = NodePath("LevelEndArea")
 level_valid_area = NodePath("LevelValidArea")
 camera_limit_bottom = 0
+checkpoint_locations = NodePath("Checkpoints")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 z_index = -2
@@ -193,3 +194,11 @@ position = Vector2(2075, -235)
 
 [node name="CollectibleCard2" parent="." instance=ExtResource("4_k4mgo")]
 position = Vector2(5854, -361)
+
+[node name="Checkpoints" type="Node2D" parent="."]
+
+[node name="Checkpoint1" type="Marker2D" parent="Checkpoints"]
+position = Vector2(1954, -448)
+
+[node name="Checkpoint2" type="Marker2D" parent="Checkpoints"]
+position = Vector2(5532, -429)

@@ -9,8 +9,22 @@ var next_level_button: Button
 
 func _ready() -> void:
 	save_state.save_data_updated.connect(_update_level_data)
+	var level_buttons = find_children("Level*", "Button", false)
+	for btn: Button in level_buttons:
+		btn.connect("focus_entered", _btn_on_focus.bind(btn))
+		btn.connect("focus_exited", _btn_on_focus_exited.bind(btn))
+		btn.connect("mouse_entered", _btn_on_focus.bind(btn))
+		btn.connect("mouse_exited", _btn_on_focus_exited.bind(btn))
 	_update_level_data()
 	_focus_next_level()
+	
+func _btn_on_focus(btn: Button) -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(btn, "scale", Vector2(1.1, 1.1), 0.4).set_ease(Tween.EASE_IN_OUT)
+
+func _btn_on_focus_exited(btn: Button) -> void:
+	var tween = get_tree().create_tween()
+	tween.tween_property(btn, "scale", Vector2(1, 1), 0.4).set_ease(Tween.EASE_IN_OUT)
 	
 func _update_level_data() -> void:
 	next_level_button = $Level1
@@ -39,6 +53,8 @@ func _update_level_data() -> void:
 		var secret_level_data = save_state.get_level_data("level_5")
 		secret_level.visible = true
 		secret_level.disabled = false
+		if not secret_level_data.complete:
+			next_level_button = $Level5
 	else:
 		secret_level.visible = false
 		secret_level.disabled = true
