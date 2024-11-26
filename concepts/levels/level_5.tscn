@@ -647,8 +647,9 @@ libraries = {
 autoplay = "fall1"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Area3/MeteorContainer1/Path1"]
-position = Vector2(432, -1440)
+position = Vector2(172.002, -388.008)
 rotation = 1.79416
+progress = 1083.65
 rotates = false
 
 [node name="Meteor" type="Node2D" parent="Area3/MeteorContainer1/Path1/PathFollow2D"]
@@ -745,8 +746,9 @@ libraries = {
 autoplay = "fall2"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Area3/MeteorContainer2/Path1"]
-position = Vector2(432, -1440)
+position = Vector2(16.0018, 243.193)
 rotation = 1.79416
+progress = 1733.84
 rotates = false
 
 [node name="Meteor" type="Node2D" parent="Area3/MeteorContainer2/Path1/PathFollow2D"]
@@ -843,8 +845,9 @@ libraries = {
 autoplay = "fall3"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Area3/MeteorContainer3/Path1"]
-position = Vector2(432, -1440)
+position = Vector2(380.002, -1229.61)
 rotation = 1.79416
+progress = 216.723
 rotates = false
 
 [node name="Meteor" type="Node2D" parent="Area3/MeteorContainer3/Path1/PathFollow2D"]

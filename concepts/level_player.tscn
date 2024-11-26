@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1np6ywht4f5v"]
+[gd_scene load_steps=9 format=3 uid="uid://c1np6ywht4f5v"]
 
 [ext_resource type="Script" path="res://concepts/level_player.gd" id="1_g5obh"]
 [ext_resource type="PackedScene" uid="uid://brogwohxlf43w" path="res://concepts/levels/level_3.tscn" id="2_ckqg6"]
@@ -14,22 +14,6 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.01]
-}
-
-[sub_resource type="Animation" id="Animation_vq7mj"]
-resource_name = "collapse_portal"
-length = 0.233337
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Player/PortalLight:texture_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.233333),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.01]
@@ -54,7 +38,6 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_aik2d"]
 _data = {
 "RESET": SubResource("Animation_hsskv"),
-"collapse_portal": SubResource("Animation_vq7mj"),
 "expand_portal": SubResource("Animation_33tmx")
 }
 

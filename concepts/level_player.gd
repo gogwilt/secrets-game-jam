@@ -29,12 +29,19 @@ func load_level(level_name: String, level_info: Dictionary = {}) -> void:
 func _on_level_completed() -> void:
 	run_started = false
 	level_completed.emit(current_level_name, time_elapsed, level.collected_cards)
+	
+var collapse_tween: Tween
 
 func _on_player_layers_switched(active_layer: Player.Dimension) -> void:
 	if active_layer == Player.Dimension.SUB:
+		if collapse_tween:
+			collapse_tween.stop()
+			collapse_tween = null
 		$PortalAnimationPlayer.play("expand_portal")
 	else:
-		$PortalAnimationPlayer.play("collapse_portal")
+		$PortalAnimationPlayer.stop(true)
+		collapse_tween = get_tree().create_tween()
+		collapse_tween.tween_property(%PortalLight, "texture_scale", 0, 0.2).set_ease(Tween.EASE_IN)
 
 func _process(delta: float) -> void:
 	if run_started:
