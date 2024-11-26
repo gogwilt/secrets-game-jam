@@ -1,6 +1,8 @@
 class_name Player extends CharacterBody2D
 
+# DEPRECATED: Use dimension_switch_status_updated instead
 signal layers_switched(active_layer: Dimension)
+signal dimension_switch_status_updated(new_status: DimensionSwitchStatus)
 signal boost_charged
 signal boost_used
 
@@ -35,6 +37,14 @@ const BOOST_SPEED_UNCHARGED = 500.0
 const BOOST_TIME_CHARGED = 0.5
 const BOOST_TIME_UNCHARGED = 0.15
 
+enum DimensionSwitchStatus { MAIN_DIMENSION, SECRET_DIMENSION, UNABLE_TO_SWITCH_TO_MAIN, UNABLE_TO_SWITCH_TO_SECRET }
+var dimension_switch_status: DimensionSwitchStatus = DimensionSwitchStatus.MAIN_DIMENSION:
+	set(value):
+		var status_updated = dimension_switch_status != value
+		dimension_switch_status = value
+		if status_updated:
+			dimension_switch_status_updated.emit(value)
+
 func _ready() -> void:
 	_on_active_layer_updated()
 	layers_switched.connect(_track_layer_switch_for_boost)
@@ -66,6 +76,11 @@ func _physics_process(delta: float) -> void:
 			active_layer = Dimension.SUB if active_layer == Dimension.MAIN else Dimension.MAIN
 			_on_active_layer_updated()
 			layers_switched.emit(active_layer)
+			dimension_switch_status = DimensionSwitchStatus.MAIN_DIMENSION if active_layer == Dimension.MAIN else DimensionSwitchStatus.SECRET_DIMENSION
+		else:
+			dimension_switch_status = DimensionSwitchStatus.UNABLE_TO_SWITCH_TO_MAIN if active_layer == Dimension.SUB else DimensionSwitchStatus.UNABLE_TO_SWITCH_TO_SECRET
+	else:
+		dimension_switch_status = DimensionSwitchStatus.MAIN_DIMENSION if active_layer == Dimension.MAIN else DimensionSwitchStatus.SECRET_DIMENSION
 
 	var direction := Input.get_axis("move_left", "move_right") if can_move else 0.0
 	var unit_direction := 0 if direction == 0 else 1 if direction > 0 else -1

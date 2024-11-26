@@ -87,9 +87,10 @@ text = "00:00:00"
 
 [node name="PortalLight" type="PointLight2D" parent="Player"]
 unique_name_in_owner = true
+position = Vector2(0, -50)
 blend_mode = 1
 range_item_cull_mask = 6
 texture = SubResource("GradientTexture2D_11htq")
 texture_scale = 0.01
 
-[connection signal="layers_switched" from="Player" to="." method="_on_player_layers_switched"]
+[connection signal="dimension_switch_status_updated" from="Player" to="." method="_on_player_dimension_switch_status_updated"]
