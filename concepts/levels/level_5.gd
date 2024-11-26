@@ -22,6 +22,7 @@ func _on_trigger_area_5_body_entered(body: Node2D) -> void:
 		return
 		
 	$LevelCollapsePlayer.play("area5")
+	shake_camera(5)
 
 var in_boost_area = false
 

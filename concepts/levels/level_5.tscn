@@ -359,10 +359,10 @@ tracks/0/path = NodePath("Area1/Collapse1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.466667, 1.63333),
+"times": PackedFloat32Array(0.466667, 1.93333),
 "transitions": PackedFloat32Array(34.2967, 1),
 "update": 0,
-"values": [Vector2(64, 0), Vector2(64, 520)]
+"values": [Vector2(64, 0), Vector2(64, 600)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -371,10 +371,10 @@ tracks/1/path = NodePath("Area1/Collapse2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.2, 2.46667),
+"times": PackedFloat32Array(1.2, 3),
 "transitions": PackedFloat32Array(7.46426, 1),
 "update": 0,
-"values": [Vector2(128, 0), Vector2(128, 520)]
+"values": [Vector2(128, 0), Vector2(128, 600)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -383,10 +383,10 @@ tracks/2/path = NodePath("Area1/Collapse3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1.7, 3.56667),
+"times": PackedFloat32Array(1.7, 3.66667),
 "transitions": PackedFloat32Array(7.46426, 1),
 "update": 0,
-"values": [Vector2(192, 0), Vector2(192, 520)]
+"values": [Vector2(192, 0), Vector2(192, 600)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -398,7 +398,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(1.93333, 4.93333),
 "transitions": PackedFloat32Array(7.46426, 1),
 "update": 0,
-"values": [Vector2(256, -2), Vector2(256, 520)]
+"values": [Vector2(256, -2), Vector2(256, 600)]
 }
 
 [sub_resource type="Animation" id="Animation_8h1o5"]
@@ -647,9 +647,8 @@ libraries = {
 autoplay = "fall1"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Area3/MeteorContainer1/Path1"]
-position = Vector2(172.002, -388.008)
+position = Vector2(432, -1440)
 rotation = 1.79416
-progress = 1083.65
 rotates = false
 
 [node name="Meteor" type="Node2D" parent="Area3/MeteorContainer1/Path1/PathFollow2D"]
@@ -746,9 +745,8 @@ libraries = {
 autoplay = "fall2"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Area3/MeteorContainer2/Path1"]
-position = Vector2(16.0018, 243.193)
+position = Vector2(432, -1440)
 rotation = 1.79416
-progress = 1733.84
 rotates = false
 
 [node name="Meteor" type="Node2D" parent="Area3/MeteorContainer2/Path1/PathFollow2D"]
@@ -845,9 +843,8 @@ libraries = {
 autoplay = "fall3"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Area3/MeteorContainer3/Path1"]
-position = Vector2(380.002, -1229.61)
+position = Vector2(432, -1440)
 rotation = 1.79416
-progress = 216.723
 rotates = false
 
 [node name="Meteor" type="Node2D" parent="Area3/MeteorContainer3/Path1/PathFollow2D"]
