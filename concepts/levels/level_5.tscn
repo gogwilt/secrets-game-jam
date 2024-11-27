@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="3_bu464"]
 [ext_resource type="Texture2D" uid="uid://cato4akygdsa7" path="res://assets/dead-forest-background.png" id="3_ve5pw"]
 [ext_resource type="PackedScene" uid="uid://clp77mhxk5mon" path="res://concepts/collectible_card.tscn" id="5_k7snn"]
-[ext_resource type="Texture2D" uid="uid://bl5npikx2gx7l" path="res://assets/cards/tarot-back.png" id="6_b6w78"]
+[ext_resource type="Texture2D" uid="uid://kylkltop1msh" path="res://assets/cards/tarot-back-small.png" id="6_4w4tw"]
 [ext_resource type="Texture2D" uid="uid://coc5pxerk35x2" path="res://assets/background-duchess-house.png" id="7_pog7a"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_a1n7f"]
@@ -647,9 +647,8 @@ libraries = {
 autoplay = "fall1"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Area3/MeteorContainer1/Path1"]
-position = Vector2(172.002, -388.008)
+position = Vector2(432, -1440)
 rotation = 1.79416
-progress = 1083.65
 rotates = false
 
 [node name="Meteor" type="Node2D" parent="Area3/MeteorContainer1/Path1/PathFollow2D"]
@@ -746,9 +745,8 @@ libraries = {
 autoplay = "fall2"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Area3/MeteorContainer2/Path1"]
-position = Vector2(16.0018, 243.193)
+position = Vector2(432, -1440)
 rotation = 1.79416
-progress = 1733.84
 rotates = false
 
 [node name="Meteor" type="Node2D" parent="Area3/MeteorContainer2/Path1/PathFollow2D"]
@@ -845,9 +843,8 @@ libraries = {
 autoplay = "fall3"
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Area3/MeteorContainer3/Path1"]
-position = Vector2(380.002, -1229.61)
+position = Vector2(432, -1440)
 rotation = 1.79416
-progress = 216.723
 rotates = false
 
 [node name="Meteor" type="Node2D" parent="Area3/MeteorContainer3/Path1/PathFollow2D"]
@@ -1138,7 +1135,7 @@ position = Vector2(1256, -1736)
 position = Vector2(96, -672)
 amount = 30
 lifetime = 8.0
-texture = ExtResource("6_b6w78")
+texture = ExtResource("6_4w4tw")
 emission_shape = 3
 emission_rect_extents = Vector2(200, 1)
 direction = Vector2(0, 1)
@@ -1146,8 +1143,6 @@ spread = 0.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 200.0
 initial_velocity_max = 200.0
-scale_amount_min = 0.06
-scale_amount_max = 0.06
 
 [node name="BoostArea" type="Area2D" parent="Area6/FallingCards"]
 collision_mask = 5
