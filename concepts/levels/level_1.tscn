@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cl2fal0ta8wul"]
+[gd_scene load_steps=24 format=4 uid="uid://cl2fal0ta8wul"]
 
 [ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="1_2rj4f"]
 [ext_resource type="Script" path="res://concepts/levels/level_1.gd" id="1_funlj"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cato4akygdsa7" path="res://assets/dead-forest-background.png" id="4_2ve3p"]
 [ext_resource type="Texture2D" uid="uid://cnportr11gxev" path="res://assets/characters/cluedomancer-portrait.png" id="6_wmjx0"]
 [ext_resource type="PackedScene" uid="uid://clp77mhxk5mon" path="res://concepts/collectible_card.tscn" id="7_5fo1i"]
+[ext_resource type="Texture2D" uid="uid://bqiqk6deqhnj4" path="res://assets/tutorial-dimension-switch.png" id="7_otiq4"]
+[ext_resource type="Texture2D" uid="uid://cn0007sl7gwli" path="res://assets/tutorial-movement.png" id="7_r03xa"]
+[ext_resource type="Texture2D" uid="uid://cewu5cjwr3mbp" path="res://assets/tutorial-dash.png" id="7_tnj82"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x2iug"]
 texture = ExtResource("1_2rj4f")
@@ -48,7 +51,7 @@ height = 1000
 size = Vector2(370.5, 99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1nty"]
-size = Vector2(608, 301)
+size = Vector2(608, 434)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrqad"]
 size = Vector2(512, 294)
@@ -137,7 +140,7 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MovementInstructions"]
-position = Vector2(-294, -146.5)
+position = Vector2(-294, -80)
 shape = SubResource("RectangleShape2D_b1nty")
 
 [node name="DimensionInstructions" type="Area2D" parent="."]
@@ -167,15 +170,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.5
+offset_left = -1.0
 offset_top = -184.0
-offset_right = 168.5
+offset_right = 336.0
 offset_bottom = 0.0
 grow_vertical = 0
 portrait_image = ExtResource("6_wmjx0")
 character_name = "Dimension Boost"
 dialog = "K - Dash. Use WASD to control direction.
-Charge your dash in the secret dimension (Space), so you can cross chasms or move quickly."
+Charge your dash in the secret dimension (hold Space), so you can cross chasms or move quickly."
+
+[node name="DashGraphic" type="Sprite2D" parent="TutorialKeyboard/DimensionBoost"]
+position = Vector2(-262, 57)
+scale = Vector2(0.401487, 0.401487)
+texture = ExtResource("7_tnj82")
 
 [node name="SwitchDimensions" parent="TutorialKeyboard" instance=ExtResource("3_v3wcs")]
 anchors_preset = 7
@@ -183,15 +191,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.5
+offset_left = -1.0
 offset_top = -184.0
-offset_right = 168.5
+offset_right = 336.0
 offset_bottom = 0.0
 grow_vertical = 0
 portrait_image = ExtResource("6_wmjx0")
 character_name = "Switch Dimensions"
 dialog = "Every level has a secret dimension that you can access. Try switching if you seem stuck.
-Spacebar - Switch dimensions. Hold to stay in the secret dimension."
+Spacebar - Hold to switch dimensions."
+
+[node name="Tutorial-dimension-switch" type="Sprite2D" parent="TutorialKeyboard/SwitchDimensions"]
+position = Vector2(-260.965, 63)
+scale = Vector2(0.64539, 0.64539)
+texture = ExtResource("7_otiq4")
 
 [node name="Movement" parent="TutorialKeyboard" instance=ExtResource("3_v3wcs")]
 anchors_preset = 7
@@ -199,20 +212,23 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.5
+offset_left = -1.0
 offset_top = -184.0
-offset_right = 168.5
+offset_right = 336.0
 offset_bottom = 0.0
 grow_vertical = 0
 portrait_image = ExtResource("6_wmjx0")
 character_name = "Movement"
-dialog = "Find a way to get to the end of the level.
-WASD - Move around.
+dialog = "WASD - Move and control dash direction.
 J - Jump.
-P - Pause."
+K - Dash (you can dash twice in the air)."
+
+[node name="MovementGraphic" type="Sprite2D" parent="TutorialKeyboard/Movement"]
+position = Vector2(-262, 60)
+scale = Vector2(0.505634, 0.505634)
+texture = ExtResource("7_r03xa")
 
 [node name="TutorialController" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="DimensionBoost" parent="TutorialController" instance=ExtResource("3_v3wcs")]
 anchors_preset = 7
@@ -220,15 +236,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.5
+offset_left = -4.0
 offset_top = -184.0
-offset_right = 168.5
+offset_right = 333.0
 offset_bottom = 0.0
 grow_vertical = 0
 portrait_image = ExtResource("6_wmjx0")
 character_name = "Dimension Boost"
 dialog = "B / Square - Dash. Use the control stick to control direction.
-Charge your dash in the secret dimension (RT/R2), so you can cross chasms or move quickly."
+Charge your dash in the secret dimension (hold RT/R2), so you can cross chasms or move quickly."
+
+[node name="DashGraphic2" type="Sprite2D" parent="TutorialController/DimensionBoost"]
+position = Vector2(-259, 57)
+scale = Vector2(0.401487, 0.401487)
+texture = ExtResource("7_tnj82")
 
 [node name="SwitchDimensions" parent="TutorialController" instance=ExtResource("3_v3wcs")]
 anchors_preset = 7
@@ -236,15 +257,20 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.5
+offset_left = -4.0
 offset_top = -184.0
-offset_right = 168.5
+offset_right = 333.0
 offset_bottom = 0.0
 grow_vertical = 0
 portrait_image = ExtResource("6_wmjx0")
 character_name = "Switch Dimensions"
 dialog = "Every level has a secret dimension that you can access. Try switching if you seem stuck.
-RT/R2 - Switch dimensions. Hold to stay in the secret dimension."
+RT/R2 - Hold to switch dimensions."
+
+[node name="Tutorial-dimension-switch2" type="Sprite2D" parent="TutorialController/SwitchDimensions"]
+position = Vector2(-257.965, 63)
+scale = Vector2(0.64539, 0.64539)
+texture = ExtResource("7_otiq4")
 
 [node name="Movement" parent="TutorialController" instance=ExtResource("3_v3wcs")]
 anchors_preset = 7
@@ -252,16 +278,22 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -168.5
+offset_left = -4.0
 offset_top = -184.0
-offset_right = 168.5
+offset_right = 333.0
 offset_bottom = 0.0
 grow_vertical = 0
 portrait_image = ExtResource("6_wmjx0")
 character_name = "Movement"
 dialog = "Find a way to get to the end of the level.
-Left Stick - Move around.
-A/X - Jump."
+Left Stick - Move and control dash direction.
+A/X - Jump.
+B/Square - Dash (you can dash twice in the air)."
+
+[node name="MovementGraphic2" type="Sprite2D" parent="TutorialController/Movement"]
+position = Vector2(-259, 60)
+scale = Vector2(0.505634, 0.505634)
+texture = ExtResource("7_r03xa")
 
 [node name="CollectibleCard2" parent="." instance=ExtResource("7_5fo1i")]
 position = Vector2(-60, -56)
