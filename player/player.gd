@@ -126,7 +126,7 @@ func end_boost() -> void:
 	
 func _on_boost_charge_update() -> void:
 	$BoostIndicator2.visible = dimension_boost_charged
-	$AnimationPlayer.play("boost_charged")
+	$AnimationPlayer.play("boost_charged_completed")
 	
 func animate_idle() -> void:
 	$AnimatedSprite2D.play("default")
