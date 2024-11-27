@@ -12,14 +12,17 @@ join tarot-fool (back) right
 if {Card3} == true:
 	update tarot-fool (card) [fade="Fade Cross"]
 [wait time="0.5"]
-join gentleman (angry) leftmost
+join gentleman (smiling) leftmost
 cluedomancer (full_shot): Seven of Swords... deception. Wheel of Fortune, you planned a deceitful exchange? And the Fool. One final trick, but this time on you.
-gentleman: I admit it... I planned to swindle the Enigma Locket from her. But as you can see, I was the one who was played for a fool.
-gentleman: I'd heard the Duchess was nearly bankrupt. She invited me here to discuss a price on the locket. But then the Maiden accosted me. And now, the Duchess casts suspicion on me!
+cluedomancer: You pretend to be an upstanding noble, but you did in fact plan to steal the Necklace. But... you didn't. And instead, you yourself were tricked.
+gentleman (angry): I admit it... I planned to steal the Enigma Necklace from the Duchess. I'd heard she was nearly bankrupt, and she invited me to see it and discuss selling it.
+gentleman: But as your cards tell you, SHE tricked ME!\
+\
+Last night, the Maiden would not leave me alone. I could not have stolen the Necklace, but now I'm a suspect!
 cluedomancer: There is more at play, though. Your mind... it had been altered. What does it mean?
 join duchess (angry) center [z_index="1"]
 [wait time="0.5" hide_text="false" skippable="true"]
-duchess: Charlatan! You call yourself the Cluedomancer, as though you alone command so great a power.
-duchess: You are not the only one who has studied cluedomancy.\
+duchess: Pretender! You dare to call yourself "the Cluedomancer." As if the power of cluedomancy belongs to you.
+duchess: I have studied cluedomancy for decades.\
 \
-Come, test your skill, if you dare.
+Come, test your skills against me, if you dare.

@@ -1,8 +1,11 @@
 join cluedomancer center
-cluedomancer: The Duchess held a small dinner last night. And at the end of the night, her priceless Enigma Locket was gone.
-cluedomancer: Only three others were present\: the Servant, the Maiden, and the Gentleman.
+cluedomancer: Someone stole something from the Duchess last night\: the Enigma Necklace.\
+\
+She called me here to solve this crime.
 update cluedomancer left
 join duchess (neutral) right
-duchess: Someone was probably jealous of my popularity. So sad that they would take advantage of my hospitality.
+duchess: I held a small dinner party last night. The only people there were myself, the Servant, the Maiden, and the Gentleman.\
+\
+One of them must have taken advantage of my generosity.
 cluedomancer: May I ask you a few questions?
 duchess: Certainly. Let us begin.

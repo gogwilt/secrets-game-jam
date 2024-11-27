@@ -10,8 +10,14 @@ join tarot-ace-of-cups (back) right
 if {Card3} == true:
 	update tarot-ace-of-cups (card) [fade="Fade Cross"]
 [wait time="0.5"]
-join maiden (angry) leftmost
+join maiden (neutral) leftmost
 join cluedomancer rightmost
 cluedomancer: The Wheel of Fortune and the Devil... gambling and an unpaid debt? And the Ace of Cups. A valued treasure you sought to regain.
-maiden: Your cluedomancy speaks truly. But now you see\: I did not steal that witch's locket.
-maiden: The Gentleman is not all he seems. I pawned my family's most valued heirlooms to pay a wager. I made the money back, but the scoundrel had already sold it, and won't tell me to whom.
+cluedomancer: You pretend to be a virtuous maiden, but the cards suggest a secret identity. You are a gambler, and you gambled away your inheritance. Perhaps you stole the Necklace to pay your debt?
+maiden (angry): Your cluedomancy speaks truly. I sold my family's jewelry to repay a gambling debt.\
+\
+But I did not steal that witch's Necklace!
+maiden: I sold my family's jewelry to the Gentleman, but I made the money back! Last night, I went to buy the jewelry back from him, but the scoundrel had already sold it!
+maiden: The Gentleman is not all he seems! He pretends to be an upstanding noble. He is nothing but a common thief.\
+\
+If anyone stole the Necklace, it was him!

@@ -10,9 +10,16 @@ join tarot-sun (back) right
 if {Card3} == true:
 	update tarot-sun (reversed) [fade="Fade Cross"]
 [wait time="0.5" skippable="true"]
-join servant (sad) leftmost
+join servant (neutral) leftmost
 join cluedomancer rightmost
-cluedomancer: The Lovers and The Fool... a love that was spurned? And The Sun, reversed. Deep depression and sadness.
-servant: You have found me out. The Maiden and I were in love -- or so I thought.
-servant: She promised me the world; that with one last plot she could take us away from all this.
-servant: It was she who took the locket. Of that I'm sure. But when I asked her about it, she dismissed me. She said she would not speak to me again.
+cluedomancer: The Lovers and The Fool. You fell in love, and that love made you a fool. And The Sun, reversed. The one you loved did not love you back, which made you unbearably sad.
+cluedomancer: You claim to be a faithful servant, but the cards suggest an unrequited love.\
+\
+Perhaps you stole the Necklace out of love?
+servant (sad): You are right. The Maiden and I were in love -- or so I thought.
+servant: She told me that if she had the Necklace, we could have enough money to be together.\
+\
+I told her where the Duchess kept it, and how to steal it.
+servant: The Maiden took the Necklace! But when I asked her about it, she denied it.\
+\
+She said she would never speak to me again!
