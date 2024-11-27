@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://b8m6yl4vxq41k"]
+[gd_scene load_steps=36 format=3 uid="uid://b8m6yl4vxq41k"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_5otab"]
 [ext_resource type="Texture2D" uid="uid://dt00pmay67o0d" path="res://assets/white-16x16.png" id="1_7evac"]
@@ -8,15 +8,16 @@
 [ext_resource type="PackedScene" uid="uid://ckgwenlkp8pj2" path="res://player/states/ground_state.tscn" id="4_nmp6a"]
 [ext_resource type="PackedScene" uid="uid://b6san3hcuu7t8" path="res://player/states/falling_state.tscn" id="5_8beaw"]
 [ext_resource type="PackedScene" uid="uid://cddfljqinlj3g" path="res://player/states/boost_state.tscn" id="6_edjx4"]
+[ext_resource type="Texture2D" uid="uid://kylkltop1msh" path="res://assets/cards/tarot-back-small.png" id="9_6mgj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6ngxk"]
 size = Vector2(18, 87.6528)
 
 [sub_resource type="Curve2D" id="Curve2D_6h3o1"]
 _data = {
-"points": PackedVector2Array(-0.297638, -5.85354, 0.297638, 5.85354, -44.4444, -13.7778, 0, 0, 0, 0, -26.6667, -2.66667, -8.82992, 0.198425, 8.82992, -0.198425, -3.33333, 1.77777, 0, 0, 0, 0, 28.8889, -2.66667, 0.0992126, 8.92913, -0.0992126, -8.92913, 43.3333, -17.1111, 0, 0, 0, 0, 23.3333, -30.4445, 0, 0, 0, 0, -1.11111, -33.7778, 0, 0, 0, 0, -30, -24.8889, -0.235969, -6.54813, 0.235969, 6.54813, -44.4444, -13.7778)
+"points": PackedVector2Array(-6.40884, -8.00072, 6.40884, 8.00072, -48.8889, 14, -23.695, 21.1747, 23.695, -21.1747, 16.6667, -8.22227, 8.19243, 7.27745, -8.19243, -7.27745, 43.3333, -58.2223, 20.1505, -19.9853, -20.1505, 19.9853, -17.7778, -33.7778, -6.51234, -7.53914, 6.51234, 7.53914, -47.7778, 15.1111)
 }
-point_count = 9
+point_count = 5
 
 [sub_resource type="Gradient" id="Gradient_qwdu0"]
 offsets = PackedFloat32Array(0.0233333, 0.48, 1)
@@ -227,6 +228,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoostIndicator2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_hpulc"]
 resource_name = "boost_charged"
@@ -253,7 +266,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.25, 1.25]
+"values": [0.33, 1.33]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -265,7 +278,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.485061, 1.5]
+"values": [0.66, 1.66]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -278,6 +291,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.75, 1.75]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoostIndicator2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.5, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_jycqr"]
@@ -304,7 +329,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.25, 1.25]
+"values": [0.3, 1.33]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -313,10 +338,10 @@ tracks/2/path = NodePath("BoostIndicator2/Path2D/PathFollow2D3:progress_ratio")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [0.485061, 1.5]
+"values": [0.66, 1.0, 1.5, 1.66]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -342,12 +367,101 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(1, 1), Vector2(4, 1.2), Vector2(1, 1), Vector2(4, 1.2), Vector2(1, 1)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoostIndicator2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.366667, 0.6, 0.866667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0.966667, 0, 1), Color(0, 1, 0.0999999, 1), Color(0, 0.633333, 1, 1), Color(0.866667, 0, 1, 1), Color(1, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_2rugm"]
+resource_name = "dimension_boost_charged"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoostIndicator2/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoostIndicator2/Path2D/PathFollow2D2:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.33, 1.33]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoostIndicator2/Path2D/PathFollow2D3:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.66, 1.66]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoostIndicator2/Path2D/PathFollow2D4:progress_ratio")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.75, 1.75]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoostIndicator2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.533333, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(0.6, 1, 0, 1), Color(0, 0.95, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoostIndicator2/Path2D:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qutqu"]
 _data = {
 "RESET": SubResource("Animation_b06x4"),
 "boost_charged": SubResource("Animation_hpulc"),
-"boost_charged_completed": SubResource("Animation_jycqr")
+"boost_charged_completed": SubResource("Animation_jycqr"),
+"dimension_boost_charged": SubResource("Animation_2rugm")
 }
 
 [node name="Player" type="CharacterBody2D"]
@@ -373,23 +487,10 @@ curve = SubResource("Curve2D_6h3o1")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
 y_sort_enabled = true
-position = Vector2(-44.4444, -13.7778)
-progress = 198.888
+position = Vector2(-48.8889, 14)
 rotates = false
 
-[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D"]
-y_sort_enabled = true
-position = Vector2(-4.76837e-07, -1.07288e-06)
-scale = Vector2(0.25, 0.5)
-texture = ExtResource("1_7evac")
-
-[node name="PathFollow2D2" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
-y_sort_enabled = true
-position = Vector2(0.840358, 1.50665)
-progress = 49.722
-rotates = false
-
-[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D2"]
+[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D" groups=["num_boost_indicator"]]
 y_sort_enabled = true
 position = Vector2(-4.76837e-07, -1.07288e-06)
 scale = Vector2(0.25, 0.5)
@@ -397,23 +498,36 @@ texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D3" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
 y_sort_enabled = true
-position = Vector2(43.3377, -16.9844)
-progress = 99.4439
+position = Vector2(5.77333, -50.924)
+progress = 173.121
 rotates = false
 
-[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D3"]
+[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D3" groups=["num_boost_indicator"]]
+y_sort_enabled = true
+position = Vector2(-4.76837e-07, -1.07288e-06)
+scale = Vector2(0.25, 0.5)
+texture = ExtResource("1_7evac")
+
+[node name="PathFollow2D2" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
+y_sort_enabled = true
+position = Vector2(26.6444, -17.9218)
+progress = 86.5605
+rotates = false
+
+[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D2" groups=["num_boost_indicator"]]
 y_sort_enabled = true
 position = Vector2(-4.76837e-07, -1.07288e-06)
 scale = Vector2(0.25, 0.5)
 texture = ExtResource("1_7evac")
 
 [node name="PathFollow2D4" type="PathFollow2D" parent="BoostIndicator2/Path2D"]
+visible = false
 y_sort_enabled = true
-position = Vector2(-0.632731, -33.8041)
-progress = 149.166
+position = Vector2(-13.6598, -37.6014)
+progress = 196.728
 rotates = false
 
-[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D4"]
+[node name="Sprite2D" type="Sprite2D" parent="BoostIndicator2/Path2D/PathFollow2D4" groups=["num_boost_indicator"]]
 y_sort_enabled = true
 position = Vector2(-4.76837e-07, -1.07288e-06)
 scale = Vector2(0.25, 0.5)
@@ -458,6 +572,7 @@ ground_state = NodePath("../GroundState")
 boost_state = NodePath("../BoostState")
 
 [node name="BoostState" parent="StateMachine" node_paths=PackedStringArray("player", "falling_state", "ground_state") instance=ExtResource("6_edjx4")]
+unique_name_in_owner = true
 player = NodePath("../..")
 falling_state = NodePath("../FallingState")
 ground_state = NodePath("../GroundState")
@@ -478,6 +593,40 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_qutqu")
 }
-next/boost_charged_completed = &"boost_charged"
+autoplay = "boost_charged"
+next/boost_charged_completed = &"dimension_boost_charged"
 
+[node name="NumBoostsIndicator" type="Node2D" parent="."]
+visible = false
+position = Vector2(0, -113.333)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NumBoostsIndicator"]
+modulate = Color(0.17, 0.930833, 1, 1)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.0
+offset_right = 34.0
+offset_bottom = 12.0
+grow_horizontal = 2
+alignment = 1
+
+[node name="Indicator1" type="TextureRect" parent="NumBoostsIndicator/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_6mgj1")
+expand_mode = 3
+
+[node name="Indicator2" type="TextureRect" parent="NumBoostsIndicator/HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+texture = ExtResource("9_6mgj1")
+expand_mode = 3
+
+[node name="Indicator3" type="TextureRect" parent="NumBoostsIndicator/HBoxContainer"]
+custom_minimum_size = Vector2(7, 0)
+layout_mode = 2
+texture = ExtResource("9_6mgj1")
+expand_mode = 3
+
+[connection signal="boost_state_reset" from="." to="." method="_on_boost_state_reset"]
 [connection signal="timeout" from="BoostChargeTimer" to="." method="_on_boost_charge_timer_timeout"]

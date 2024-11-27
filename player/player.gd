@@ -5,6 +5,7 @@ signal layers_switched(active_layer: Dimension)
 signal dimension_switch_status_updated(new_status: DimensionSwitchStatus)
 signal boost_charged
 signal boost_used
+signal boost_state_reset
 
 enum Dimension { MAIN, SUB }
 var active_layer: Dimension = Dimension.MAIN
@@ -99,7 +100,8 @@ func _on_boost_charge_timer_timeout() -> void:
 	
 func grant_boost_charge() -> void:
 	dimension_boost_charged = true
-	_on_boost_charge_update()
+	$AnimationPlayer.play("boost_charged_completed")
+	_update_num_boosts_indicator()
 	boost_charged.emit()
 	
 var boost_effect_img: Texture2D
@@ -118,15 +120,19 @@ func use_boost() -> void:
 	else:
 		%BoostEffect.texture = boost_effect_img_flip
 	%BoostEffect.emitting = true
-	_on_boost_charge_update()
 	boost_used.emit()
+	_update_num_boosts_indicator()
 	
 func end_boost() -> void:
 	%BoostEffect.emitting = false
+	if not dimension_boost_charged:
+		$AnimationPlayer.play("boost_charged")
 	
-func _on_boost_charge_update() -> void:
-	$BoostIndicator2.visible = dimension_boost_charged
-	$AnimationPlayer.play("boost_charged_completed")
+func _update_num_boosts_indicator() -> void:
+	var boost_indicators = get_tree().get_nodes_in_group("num_boost_indicator")
+	var num_available = %BoostState.num_boosts_available()
+	for i in range(boost_indicators.size()):
+		boost_indicators[i].visible = i < num_available
 	
 func animate_idle() -> void:
 	$AnimatedSprite2D.play("default")
@@ -161,3 +167,7 @@ func animate_boost_down() -> void:
 		$AnimatedSprite2D.rotation = PI / 2
 	else:
 		$AnimatedSprite2D.rotation = PI / 2 * 3
+
+
+func _on_boost_state_reset() -> void:
+	_update_num_boosts_indicator()

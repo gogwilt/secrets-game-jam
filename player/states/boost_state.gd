@@ -7,7 +7,6 @@ class_name BoostState extends State
 var count_boosts_in_air := 0
 
 func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
-	
 	var speed = Player.BOOST_SPEED_UNCHARGED
 	var time = Player.BOOST_TIME_UNCHARGED
 	if data.boost_charged:
@@ -31,6 +30,8 @@ func enter(prev_state: String, data:= {"boost_charged": false}) -> void:
 		player.animate_boost_down()
 	else:
 		player.animate_boost()
+		
+	player._update_num_boosts_indicator()
 	
 func exit() -> void:
 	$Timer.stop()
@@ -78,6 +79,11 @@ func _on_timer_timeout() -> void:
 	
 func can_boost() -> bool:
 	return player.dimension_boost_charged or count_boosts_in_air < 2
+	
+func num_boosts_available() -> int:
+	return 2 - count_boosts_in_air + (
+		1 if player.dimension_boost_charged else 0
+	)
 	
 func reset() -> void:
 	count_boosts_in_air = 0

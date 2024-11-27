@@ -6,6 +6,7 @@ extends State
 
 func enter(prev_state: String, data:= {}) -> void:
 	boost_state.reset()
+	player.boost_state_reset.emit()
 	
 func exit() -> void:
 	pass
